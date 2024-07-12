@@ -1,8 +1,9 @@
 project:
   type: website
+  output-dir: docs #웹사이트를 docs라는 폴더에 넣어라
 
 website:
-  title: "testweb"
+  title: "박수빈의 포트폴리오"
   navbar:
     left:
       - href: index.qmd
