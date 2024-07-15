@@ -4,17 +4,25 @@ project:
 
 website:
   title: "박수빈의 포트폴리오"
+  description: "박수빈의 작업 및 프로젝트 포트폴리오"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - about.qmd
+      - work1.qmd
+      
+    right:
+      - text: GitHub
+        href: https://github.com/nebuss/mywebsite
 
 format:
   html:
-    theme: cosmo
+    theme: journal
     css: styles.css
     toc: true
+    
+    highlight: github
 
 
 
