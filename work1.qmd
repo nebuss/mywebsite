@@ -1,9 +1,9 @@
 ---
-title: "0715"
+title: "work1"
 jupyter: python3
 ---
 
-다음 표의 내용을 데이터 프레임으로 만들어 출력해보세요.
+### 다음 표의 내용을 데이터 프레임으로 만들어 출력해보세요.
 
 ```{python}
 import pandas as pd
@@ -16,7 +16,7 @@ df
 
 ```
 
-앞에서 만든 데이터 프레임을 이용해 과일의 가격 평균과 판매량 평균을 구해 보세요.
+### 앞에서 만든 데이터 프레임을 이용해 과일의 가격 평균과 판매량 평균을 구해 보세요.
 
 ```{python}
 sum(df['가격'])/ 3
@@ -26,9 +26,9 @@ sum(df['가격'])/ 3
 sum(df['판매량']/3)
 ```
 
-mpg 데이터를 이용해 분석 문제를 해결해 보세요.
+### mpg 데이터를 이용해 분석 문제를 해결해 보세요.
 
-Q1. mpg 데이터를 불러와 복사본을 만드세요.
+### Q1. mpg 데이터를 불러와 복사본을 만드세요.
 ```{python}
 mpg = pd.read_csv('data/mpg.csv')
 df_new = mpg.copy()
@@ -36,7 +36,7 @@ df_new
 ```
 
 
-Q2. 복사본 데이터를 이용해 cty 는 city로, hwy는 highway로 수정하세요.
+### Q2. 복사본 데이터를 이용해 cty 는 city로, hwy는 highway로 수정하세요.
 ```{python}
 df_new = df_new.rename(columns = {'cty' : 'city'})
 df_new = df_new.rename(columns = {'hwy':'highway'})
@@ -44,14 +44,13 @@ df_new = df_new.rename(columns = {'hwy':'highway'})
 ```
 
 
-Q3. 데이터 일부를 출력해 변수명이 바뀌었는지 확인해보세요.
+### Q3. 데이터 일부를 출력해 변수명이 바뀌었는지 확인해보세요.
 ```{python}
 df_new.head(5)
 ```
 
-#분석 도전
 
-midwest.csv를 불러와 데이터 특징을 파악해보라
+### midwest.csv를 불러와 데이터 특징을 파악해보라
 ```{python}
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -81,8 +80,8 @@ print("Missing values:\n", df_midwest.isnull().sum())
 ```
 
 
-문제 2
-poptotal(전체인구) 변수를 total로, popasian(아시아 인구) 변수를 asian으로 수정하세요.
+##문제 2
+###poptotal(전체인구) 변수를 total로, popasian(아시아 인구) 변수를 asian으로 수정하세요.
 
 ```{python}
 df_midwest = pd.read_csv('data/midwest.csv')
@@ -95,8 +94,8 @@ df_midnew = df_midnew.rename(columns = {'popasian' : 'asian'})
 ```{python}
 df_midnew
 ```
-문제3
-total, asian 변수 이용해 '전체 인구 대비 아시아 인구 백분율' 파생변수를 추가하고, 히스토그램을
+## 문제3
+### total, asian 변수 이용해 '전체 인구 대비 아시아 인구 백분율' 파생변수를 추가하고, 히스토그램을
 만들어 분포를 살펴보세요.
 
 ```{python}
@@ -105,9 +104,8 @@ df_midnew['asian_pop'] = (df_midnew['asian'] / df_midnew['total']) * 100
 df_midnew['asian_pop'].plot.hist()
 ```
 
-문제3 
-아시아 인구 백분율 전체 평균을 구하고, 평균을 초과하면 'large', 그 외에는 'small'을 부여한
-파생변수를 만드시오.
+## 문제3 
+### 아시아 인구 백분율 전체 평균을 구하고, 평균을 초과하면 'large', 그 외에는 'small'을 부여한 파생변수를 만드시오.
 
 
 ```{python}
@@ -127,7 +125,7 @@ df_midnew['small'] = (df_midnew['asian_pop'].mean() > df_midnew['asian_pop'])
 df_midnew
 ```
 
-문제 5
+## 문제 5
 ```{python}
 
 # 'large'에 해당하는 빈도
