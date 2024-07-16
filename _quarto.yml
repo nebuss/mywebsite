@@ -11,6 +11,7 @@ website:
         text: Home
       - about.qmd
       - work1.qmd
+      - work2.qmd
       
     right:
       - text: GitHub
