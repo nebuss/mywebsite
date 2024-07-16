@@ -1,10 +1,10 @@
 ---
-title: "Finley Malloc"
+title: "Hello"
 toc: false
 about:
   id: hero-heading
   template: jolla
-  image: sky.webp
+  image: sky.jpg
   links:
      
     - icon: github
