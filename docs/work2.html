@@ -20,10 +20,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -66,6 +100,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -100,6 +137,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./work1.html"> 
 <span class="menu-text">work1</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./work2.html" aria-current="page"> 
+<span class="menu-text">work2</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
@@ -118,7 +159,18 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#q2.-자동차-제조-회사에-따라-도시-연비가-어떻게-다른지-알아보려고-합니다." id="toc-q2.-자동차-제조-회사에-따라-도시-연비가-어떻게-다른지-알아보려고-합니다." class="nav-link active" data-scroll-target="#q2.-자동차-제조-회사에-따라-도시-연비가-어떻게-다른지-알아보려고-합니다.">Q2. 자동차 제조 회사에 따라 도시 연비가 어떻게 다른지 알아보려고 합니다.</a></li>
+  <li><a href="#audi와-toyota-중-어느-manufacturer-의-cty도시연비-평균이-더-높은지-알아보세요." id="toc-audi와-toyota-중-어느-manufacturer-의-cty도시연비-평균이-더-높은지-알아보세요." class="nav-link" data-scroll-target="#audi와-toyota-중-어느-manufacturer-의-cty도시연비-평균이-더-높은지-알아보세요.">‘audi’와 ’toyota’ 중 어느 manufacturer 의 cty(도시연비) 평균이 더 높은지 알아보세요.</a></li>
+  <li><a href="#q3.-chevoret-ford-honda-자동차의-고속도로-연비평균을-알아보려고-합니다." id="toc-q3.-chevoret-ford-honda-자동차의-고속도로-연비평균을-알아보려고-합니다." class="nav-link" data-scroll-target="#q3.-chevoret-ford-honda-자동차의-고속도로-연비평균을-알아보려고-합니다.">Q3. ‘chevoret’, ‘ford’, ‘honda’ 자동차의 고속도로 연비평균을 알아보려고 합니다.</a></li>
+  <li><a href="#세-회사의-데이터를-추출한-다음-hwy-전체-평균을-구해-보세요." id="toc-세-회사의-데이터를-추출한-다음-hwy-전체-평균을-구해-보세요." class="nav-link" data-scroll-target="#세-회사의-데이터를-추출한-다음-hwy-전체-평균을-구해-보세요.">세 회사의 데이터를 추출한 다음 hwy 전체 평균을 구해 보세요.</a></li>
+  <li><a href="#q1.-audi에서-생산한-자동차-중에-어떤-자동차-모델의-hwy고속도로-연비가-높은지-알아보려고-한다." id="toc-q1.-audi에서-생산한-자동차-중에-어떤-자동차-모델의-hwy고속도로-연비가-높은지-알아보려고-한다." class="nav-link" data-scroll-target="#q1.-audi에서-생산한-자동차-중에-어떤-자동차-모델의-hwy고속도로-연비가-높은지-알아보려고-한다.">Q1. ’audi’에서 생산한 자동차 중에 어떤 자동차 모델의 hwy(고속도로 연비)가 높은지 알아보려고 한다.</a></li>
+  <li><a href="#audi-에서-생산한-자동차-중-hwy가-15위에-해당하는-자동차의-데이터를-출력하세요." id="toc-audi-에서-생산한-자동차-중-hwy가-15위에-해당하는-자동차의-데이터를-출력하세요." class="nav-link" data-scroll-target="#audi-에서-생산한-자동차-중-hwy가-15위에-해당하는-자동차의-데이터를-출력하세요.">audi 에서 생산한 자동차 중 hwy가 1~5위에 해당하는 자동차의 데이터를 출력하세요.</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -142,8 +194,1339 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>0716 ### Q1. 자동차 배기량에 따라 고속도로 연비가 다른지 알아보려고 한다. ### displ(배기량)이 4이하인 자동차와 5 이상인 자동차 중 어떤 자동차의 hwy(고속도로 연비)평균이 더 높은지 알아보세요</p>
+<div id="439675ad" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>mpg <span class="op">=</span> pd.read_csv(<span class="st">'data/mpg.csv'</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>displ_4<span class="op">=</span>mpg.query(<span class="st">'displ  &lt;= 4'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>displ_4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<div>
 
 
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">manufacturer</th>
+<th data-quarto-table-cell-role="th">model</th>
+<th data-quarto-table-cell-role="th">displ</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">cyl</th>
+<th data-quarto-table-cell-role="th">trans</th>
+<th data-quarto-table-cell-role="th">drv</th>
+<th data-quarto-table-cell-role="th">cty</th>
+<th data-quarto-table-cell-role="th">hwy</th>
+<th data-quarto-table-cell-role="th">fl</th>
+<th data-quarto-table-cell-role="th">category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>audi</td>
+<td>a4</td>
+<td>1.8</td>
+<td>1999</td>
+<td>4</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>18</td>
+<td>29</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>audi</td>
+<td>a4</td>
+<td>1.8</td>
+<td>1999</td>
+<td>4</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>21</td>
+<td>29</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>manual(m6)</td>
+<td>f</td>
+<td>20</td>
+<td>31</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>auto(av)</td>
+<td>f</td>
+<td>21</td>
+<td>30</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.8</td>
+<td>1999</td>
+<td>6</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>16</td>
+<td>26</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">229</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>auto(s6)</td>
+<td>f</td>
+<td>19</td>
+<td>28</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">230</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>manual(m6)</td>
+<td>f</td>
+<td>21</td>
+<td>29</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">231</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.8</td>
+<td>1999</td>
+<td>6</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>16</td>
+<td>26</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">232</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.8</td>
+<td>1999</td>
+<td>6</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>18</td>
+<td>26</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">233</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>3.6</td>
+<td>2008</td>
+<td>6</td>
+<td>auto(s6)</td>
+<td>f</td>
+<td>17</td>
+<td>26</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+</tbody>
+</table>
+
+<p>163 rows × 11 columns</p>
+</div>
+</div>
+</div>
+<div id="dfa399cc" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>displ_5<span class="op">=</span>mpg.query(<span class="st">'displ  &gt;= 5'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>displ_5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">manufacturer</th>
+<th data-quarto-table-cell-role="th">model</th>
+<th data-quarto-table-cell-role="th">displ</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">cyl</th>
+<th data-quarto-table-cell-role="th">trans</th>
+<th data-quarto-table-cell-role="th">drv</th>
+<th data-quarto-table-cell-role="th">cty</th>
+<th data-quarto-table-cell-role="th">hwy</th>
+<th data-quarto-table-cell-role="th">fl</th>
+<th data-quarto-table-cell-role="th">category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>chevrolet</td>
+<td>c1500 suburban 2wd</td>
+<td>5.3</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>r</td>
+<td>14</td>
+<td>20</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>chevrolet</td>
+<td>c1500 suburban 2wd</td>
+<td>5.3</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>r</td>
+<td>11</td>
+<td>15</td>
+<td>e</td>
+<td>suv</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>chevrolet</td>
+<td>c1500 suburban 2wd</td>
+<td>5.3</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>r</td>
+<td>14</td>
+<td>20</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>chevrolet</td>
+<td>c1500 suburban 2wd</td>
+<td>5.7</td>
+<td>1999</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>r</td>
+<td>13</td>
+<td>17</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>chevrolet</td>
+<td>c1500 suburban 2wd</td>
+<td>6.0</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>r</td>
+<td>12</td>
+<td>17</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>chevrolet</td>
+<td>corvette</td>
+<td>5.7</td>
+<td>1999</td>
+<td>8</td>
+<td>manual(m6)</td>
+<td>r</td>
+<td>16</td>
+<td>26</td>
+<td>p</td>
+<td>2seater</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>chevrolet</td>
+<td>corvette</td>
+<td>5.7</td>
+<td>1999</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>r</td>
+<td>15</td>
+<td>23</td>
+<td>p</td>
+<td>2seater</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>chevrolet</td>
+<td>corvette</td>
+<td>6.2</td>
+<td>2008</td>
+<td>8</td>
+<td>manual(m6)</td>
+<td>r</td>
+<td>16</td>
+<td>26</td>
+<td>p</td>
+<td>2seater</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26</td>
+<td>chevrolet</td>
+<td>corvette</td>
+<td>6.2</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(s6)</td>
+<td>r</td>
+<td>15</td>
+<td>25</td>
+<td>p</td>
+<td>2seater</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">27</td>
+<td>chevrolet</td>
+<td>corvette</td>
+<td>7.0</td>
+<td>2008</td>
+<td>8</td>
+<td>manual(m6)</td>
+<td>r</td>
+<td>15</td>
+<td>24</td>
+<td>p</td>
+<td>2seater</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">28</td>
+<td>chevrolet</td>
+<td>k1500 tahoe 4wd</td>
+<td>5.3</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>4</td>
+<td>14</td>
+<td>19</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">29</td>
+<td>chevrolet</td>
+<td>k1500 tahoe 4wd</td>
+<td>5.3</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>4</td>
+<td>11</td>
+<td>14</td>
+<td>e</td>
+<td>suv</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">30</td>
+<td>chevrolet</td>
+<td>k1500 tahoe 4wd</td>
+<td>5.7</td>
+<td>1999</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>4</td>
+<td>11</td>
+<td>15</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">31</td>
+<td>chevrolet</td>
+<td>k1500 tahoe 4wd</td>
+<td>6.5</td>
+<td>1999</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>4</td>
+<td>14</td>
+<td>17</td>
+<td>d</td>
+<td>suv</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">55</td>
+<td>dodge</td>
+<td>dakota pickup 4wd</td>
+<td>5.2</td>
+<td>1999</td>
+<td>8</td>
+<td>manual(m5)</td>
+<td>4</td>
+<td>11</td>
+<td>17</td>
+<td>r</td>
+<td>pickup</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">56</td>
+<td>dodge</td>
+<td>dakota pickup 4wd</td>
+<td>5.2</td>
+<td>1999</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>4</td>
+<td>11</td>
+<td>15</td>
+<td>r</td>
+<td>pickup</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">61</td>
+<td>dodge</td>
+<td>durango 4wd</td>
+<td>5.2</td>
+<td>1999</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>4</td>
+<td>11</td>
+<td>16</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">62</td>
+<td>dodge</td>
+<td>durango 4wd</td>
+<td>5.7</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(l5)</td>
+<td>4</td>
+<td>13</td>
+<td>18</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">63</td>
+<td>dodge</td>
+<td>durango 4wd</td>
+<td>5.9</td>
+<td>1999</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>4</td>
+<td>11</td>
+<td>15</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">70</td>
+<td>dodge</td>
+<td>ram 1500 pickup 4wd</td>
+<td>5.2</td>
+<td>1999</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>4</td>
+<td>11</td>
+<td>15</td>
+<td>r</td>
+<td>pickup</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">71</td>
+<td>dodge</td>
+<td>ram 1500 pickup 4wd</td>
+<td>5.2</td>
+<td>1999</td>
+<td>8</td>
+<td>manual(m5)</td>
+<td>4</td>
+<td>11</td>
+<td>16</td>
+<td>r</td>
+<td>pickup</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">72</td>
+<td>dodge</td>
+<td>ram 1500 pickup 4wd</td>
+<td>5.7</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(l5)</td>
+<td>4</td>
+<td>13</td>
+<td>17</td>
+<td>r</td>
+<td>pickup</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">73</td>
+<td>dodge</td>
+<td>ram 1500 pickup 4wd</td>
+<td>5.9</td>
+<td>1999</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>4</td>
+<td>11</td>
+<td>15</td>
+<td>r</td>
+<td>pickup</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">75</td>
+<td>ford</td>
+<td>expedition 2wd</td>
+<td>5.4</td>
+<td>1999</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>r</td>
+<td>11</td>
+<td>17</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">76</td>
+<td>ford</td>
+<td>expedition 2wd</td>
+<td>5.4</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(l6)</td>
+<td>r</td>
+<td>12</td>
+<td>18</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">82</td>
+<td>ford</td>
+<td>explorer 4wd</td>
+<td>5.0</td>
+<td>1999</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>4</td>
+<td>13</td>
+<td>17</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">88</td>
+<td>ford</td>
+<td>f150 pickup 4wd</td>
+<td>5.4</td>
+<td>1999</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>4</td>
+<td>11</td>
+<td>15</td>
+<td>r</td>
+<td>pickup</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">89</td>
+<td>ford</td>
+<td>f150 pickup 4wd</td>
+<td>5.4</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>4</td>
+<td>13</td>
+<td>17</td>
+<td>r</td>
+<td>pickup</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">98</td>
+<td>ford</td>
+<td>mustang</td>
+<td>5.4</td>
+<td>2008</td>
+<td>8</td>
+<td>manual(m6)</td>
+<td>r</td>
+<td>14</td>
+<td>20</td>
+<td>p</td>
+<td>subcompact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">128</td>
+<td>jeep</td>
+<td>grand cherokee 4wd</td>
+<td>5.7</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(l5)</td>
+<td>4</td>
+<td>13</td>
+<td>18</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">129</td>
+<td>jeep</td>
+<td>grand cherokee 4wd</td>
+<td>6.1</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(l5)</td>
+<td>4</td>
+<td>11</td>
+<td>14</td>
+<td>p</td>
+<td>suv</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">134</td>
+<td>lincoln</td>
+<td>navigator 2wd</td>
+<td>5.4</td>
+<td>1999</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>r</td>
+<td>11</td>
+<td>17</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">135</td>
+<td>lincoln</td>
+<td>navigator 2wd</td>
+<td>5.4</td>
+<td>1999</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>r</td>
+<td>11</td>
+<td>16</td>
+<td>p</td>
+<td>suv</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">136</td>
+<td>lincoln</td>
+<td>navigator 2wd</td>
+<td>5.4</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(l6)</td>
+<td>r</td>
+<td>12</td>
+<td>18</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">140</td>
+<td>mercury</td>
+<td>mountaineer 4wd</td>
+<td>5.0</td>
+<td>1999</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>4</td>
+<td>13</td>
+<td>17</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">153</td>
+<td>nissan</td>
+<td>pathfinder 4wd</td>
+<td>5.6</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(s5)</td>
+<td>4</td>
+<td>12</td>
+<td>18</td>
+<td>p</td>
+<td>suv</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">158</td>
+<td>pontiac</td>
+<td>grand prix</td>
+<td>5.3</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(s4)</td>
+<td>f</td>
+<td>16</td>
+<td>25</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">199</td>
+<td>toyota</td>
+<td>land cruiser wagon 4wd</td>
+<td>5.7</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(s6)</td>
+<td>4</td>
+<td>13</td>
+<td>18</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="02dc12dd" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>displ_4_mean<span class="op">=</span>displ_4[<span class="st">'hwy'</span>].mean() <span class="co"># displ_4는 데이터 프레임 형식이니까, 내가 알고 싶은 배기량 열로 접근</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>displ_5_mean<span class="op">=</span>displ_5[<span class="st">'hwy'</span>].mean()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>displ_4_mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>np.float64(25.96319018404908)</code></pre>
+</div>
+</div>
+<div id="88a00320" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>displ_5_mean</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> displ_4_mean <span class="op">&gt;</span> displ_5_mean</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"결과: 배기량이 4인 자동차의 고속도로 연비 평균이 더 높다."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True
+결과: 배기량이 4인 자동차의 고속도로 연비 평균이 더 높다.</code></pre>
+</div>
+</div>
+<section id="q2.-자동차-제조-회사에-따라-도시-연비가-어떻게-다른지-알아보려고-합니다." class="level3">
+<h3 class="anchored" data-anchor-id="q2.-자동차-제조-회사에-따라-도시-연비가-어떻게-다른지-알아보려고-합니다.">Q2. 자동차 제조 회사에 따라 도시 연비가 어떻게 다른지 알아보려고 합니다.</h3>
+</section>
+<section id="audi와-toyota-중-어느-manufacturer-의-cty도시연비-평균이-더-높은지-알아보세요." class="level3">
+<h3 class="anchored" data-anchor-id="audi와-toyota-중-어느-manufacturer-의-cty도시연비-평균이-더-높은지-알아보세요.">‘audi’와 ’toyota’ 중 어느 manufacturer 의 cty(도시연비) 평균이 더 높은지 알아보세요.</h3>
+<div id="b4da020e" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mpg_audi <span class="op">=</span> mpg.query(<span class="st">'manufacturer == "audi"'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="dc8ae6d5" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mpg_toyota <span class="op">=</span> mpg.query(<span class="st">'manufacturer == "toyota"'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mpg_toyota</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">manufacturer</th>
+<th data-quarto-table-cell-role="th">model</th>
+<th data-quarto-table-cell-role="th">displ</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">cyl</th>
+<th data-quarto-table-cell-role="th">trans</th>
+<th data-quarto-table-cell-role="th">drv</th>
+<th data-quarto-table-cell-role="th">cty</th>
+<th data-quarto-table-cell-role="th">hwy</th>
+<th data-quarto-table-cell-role="th">fl</th>
+<th data-quarto-table-cell-role="th">category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">173</td>
+<td>toyota</td>
+<td>4runner 4wd</td>
+<td>2.7</td>
+<td>1999</td>
+<td>4</td>
+<td>manual(m5)</td>
+<td>4</td>
+<td>15</td>
+<td>20</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">174</td>
+<td>toyota</td>
+<td>4runner 4wd</td>
+<td>2.7</td>
+<td>1999</td>
+<td>4</td>
+<td>auto(l4)</td>
+<td>4</td>
+<td>16</td>
+<td>20</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">175</td>
+<td>toyota</td>
+<td>4runner 4wd</td>
+<td>3.4</td>
+<td>1999</td>
+<td>6</td>
+<td>auto(l4)</td>
+<td>4</td>
+<td>15</td>
+<td>19</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">176</td>
+<td>toyota</td>
+<td>4runner 4wd</td>
+<td>3.4</td>
+<td>1999</td>
+<td>6</td>
+<td>manual(m5)</td>
+<td>4</td>
+<td>15</td>
+<td>17</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">177</td>
+<td>toyota</td>
+<td>4runner 4wd</td>
+<td>4.0</td>
+<td>2008</td>
+<td>6</td>
+<td>auto(l5)</td>
+<td>4</td>
+<td>16</td>
+<td>20</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">178</td>
+<td>toyota</td>
+<td>4runner 4wd</td>
+<td>4.7</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(l5)</td>
+<td>4</td>
+<td>14</td>
+<td>17</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">179</td>
+<td>toyota</td>
+<td>camry</td>
+<td>2.2</td>
+<td>1999</td>
+<td>4</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>21</td>
+<td>29</td>
+<td>r</td>
+<td>midsize</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">180</td>
+<td>toyota</td>
+<td>camry</td>
+<td>2.2</td>
+<td>1999</td>
+<td>4</td>
+<td>auto(l4)</td>
+<td>f</td>
+<td>21</td>
+<td>27</td>
+<td>r</td>
+<td>midsize</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">181</td>
+<td>toyota</td>
+<td>camry</td>
+<td>2.4</td>
+<td>2008</td>
+<td>4</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>21</td>
+<td>31</td>
+<td>r</td>
+<td>midsize</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">182</td>
+<td>toyota</td>
+<td>camry</td>
+<td>2.4</td>
+<td>2008</td>
+<td>4</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>21</td>
+<td>31</td>
+<td>r</td>
+<td>midsize</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">183</td>
+<td>toyota</td>
+<td>camry</td>
+<td>3.0</td>
+<td>1999</td>
+<td>6</td>
+<td>auto(l4)</td>
+<td>f</td>
+<td>18</td>
+<td>26</td>
+<td>r</td>
+<td>midsize</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">184</td>
+<td>toyota</td>
+<td>camry</td>
+<td>3.0</td>
+<td>1999</td>
+<td>6</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>18</td>
+<td>26</td>
+<td>r</td>
+<td>midsize</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">185</td>
+<td>toyota</td>
+<td>camry</td>
+<td>3.5</td>
+<td>2008</td>
+<td>6</td>
+<td>auto(s6)</td>
+<td>f</td>
+<td>19</td>
+<td>28</td>
+<td>r</td>
+<td>midsize</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">186</td>
+<td>toyota</td>
+<td>camry solara</td>
+<td>2.2</td>
+<td>1999</td>
+<td>4</td>
+<td>auto(l4)</td>
+<td>f</td>
+<td>21</td>
+<td>27</td>
+<td>r</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">187</td>
+<td>toyota</td>
+<td>camry solara</td>
+<td>2.2</td>
+<td>1999</td>
+<td>4</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>21</td>
+<td>29</td>
+<td>r</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">188</td>
+<td>toyota</td>
+<td>camry solara</td>
+<td>2.4</td>
+<td>2008</td>
+<td>4</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>21</td>
+<td>31</td>
+<td>r</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">189</td>
+<td>toyota</td>
+<td>camry solara</td>
+<td>2.4</td>
+<td>2008</td>
+<td>4</td>
+<td>auto(s5)</td>
+<td>f</td>
+<td>22</td>
+<td>31</td>
+<td>r</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">190</td>
+<td>toyota</td>
+<td>camry solara</td>
+<td>3.0</td>
+<td>1999</td>
+<td>6</td>
+<td>auto(l4)</td>
+<td>f</td>
+<td>18</td>
+<td>26</td>
+<td>r</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">191</td>
+<td>toyota</td>
+<td>camry solara</td>
+<td>3.0</td>
+<td>1999</td>
+<td>6</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>18</td>
+<td>26</td>
+<td>r</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">192</td>
+<td>toyota</td>
+<td>camry solara</td>
+<td>3.3</td>
+<td>2008</td>
+<td>6</td>
+<td>auto(s5)</td>
+<td>f</td>
+<td>18</td>
+<td>27</td>
+<td>r</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">193</td>
+<td>toyota</td>
+<td>corolla</td>
+<td>1.8</td>
+<td>1999</td>
+<td>4</td>
+<td>auto(l3)</td>
+<td>f</td>
+<td>24</td>
+<td>30</td>
+<td>r</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">194</td>
+<td>toyota</td>
+<td>corolla</td>
+<td>1.8</td>
+<td>1999</td>
+<td>4</td>
+<td>auto(l4)</td>
+<td>f</td>
+<td>24</td>
+<td>33</td>
+<td>r</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">195</td>
+<td>toyota</td>
+<td>corolla</td>
+<td>1.8</td>
+<td>1999</td>
+<td>4</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>26</td>
+<td>35</td>
+<td>r</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">196</td>
+<td>toyota</td>
+<td>corolla</td>
+<td>1.8</td>
+<td>2008</td>
+<td>4</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>28</td>
+<td>37</td>
+<td>r</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">197</td>
+<td>toyota</td>
+<td>corolla</td>
+<td>1.8</td>
+<td>2008</td>
+<td>4</td>
+<td>auto(l4)</td>
+<td>f</td>
+<td>26</td>
+<td>35</td>
+<td>r</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">198</td>
+<td>toyota</td>
+<td>land cruiser wagon 4wd</td>
+<td>4.7</td>
+<td>1999</td>
+<td>8</td>
+<td>auto(l4)</td>
+<td>4</td>
+<td>11</td>
+<td>15</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">199</td>
+<td>toyota</td>
+<td>land cruiser wagon 4wd</td>
+<td>5.7</td>
+<td>2008</td>
+<td>8</td>
+<td>auto(s6)</td>
+<td>4</td>
+<td>13</td>
+<td>18</td>
+<td>r</td>
+<td>suv</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">200</td>
+<td>toyota</td>
+<td>toyota tacoma 4wd</td>
+<td>2.7</td>
+<td>1999</td>
+<td>4</td>
+<td>manual(m5)</td>
+<td>4</td>
+<td>15</td>
+<td>20</td>
+<td>r</td>
+<td>pickup</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">201</td>
+<td>toyota</td>
+<td>toyota tacoma 4wd</td>
+<td>2.7</td>
+<td>1999</td>
+<td>4</td>
+<td>auto(l4)</td>
+<td>4</td>
+<td>16</td>
+<td>20</td>
+<td>r</td>
+<td>pickup</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">202</td>
+<td>toyota</td>
+<td>toyota tacoma 4wd</td>
+<td>2.7</td>
+<td>2008</td>
+<td>4</td>
+<td>manual(m5)</td>
+<td>4</td>
+<td>17</td>
+<td>22</td>
+<td>r</td>
+<td>pickup</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">203</td>
+<td>toyota</td>
+<td>toyota tacoma 4wd</td>
+<td>3.4</td>
+<td>1999</td>
+<td>6</td>
+<td>manual(m5)</td>
+<td>4</td>
+<td>15</td>
+<td>17</td>
+<td>r</td>
+<td>pickup</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">204</td>
+<td>toyota</td>
+<td>toyota tacoma 4wd</td>
+<td>3.4</td>
+<td>1999</td>
+<td>6</td>
+<td>auto(l4)</td>
+<td>4</td>
+<td>15</td>
+<td>19</td>
+<td>r</td>
+<td>pickup</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">205</td>
+<td>toyota</td>
+<td>toyota tacoma 4wd</td>
+<td>4.0</td>
+<td>2008</td>
+<td>6</td>
+<td>manual(m6)</td>
+<td>4</td>
+<td>15</td>
+<td>18</td>
+<td>r</td>
+<td>pickup</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">206</td>
+<td>toyota</td>
+<td>toyota tacoma 4wd</td>
+<td>4.0</td>
+<td>2008</td>
+<td>6</td>
+<td>auto(l5)</td>
+<td>4</td>
+<td>16</td>
+<td>20</td>
+<td>r</td>
+<td>pickup</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="2dccb5e0" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mpg_audi[<span class="st">'hwy'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>np.float64(26.444444444444443)</code></pre>
+</div>
+</div>
+<div id="d1d520b3" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mpg_toyota[<span class="st">'hwy'</span>].mean()</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"결과: 아우디 회사의 도시연비 평균이 더 높다."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>결과: 아우디 회사의 도시연비 평균이 더 높다.</code></pre>
+</div>
+</div>
+</section>
+<section id="q3.-chevoret-ford-honda-자동차의-고속도로-연비평균을-알아보려고-합니다." class="level3">
+<h3 class="anchored" data-anchor-id="q3.-chevoret-ford-honda-자동차의-고속도로-연비평균을-알아보려고-합니다.">Q3. ‘chevoret’, ‘ford’, ‘honda’ 자동차의 고속도로 연비평균을 알아보려고 합니다.</h3>
+</section>
+<section id="세-회사의-데이터를-추출한-다음-hwy-전체-평균을-구해-보세요." class="level3">
+<h3 class="anchored" data-anchor-id="세-회사의-데이터를-추출한-다음-hwy-전체-평균을-구해-보세요.">세 회사의 데이터를 추출한 다음 hwy 전체 평균을 구해 보세요.</h3>
+<div id="5050c02d" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>hwy_mpg <span class="op">=</span> mpg.query(<span class="st">'manufacturer in ["chevoret", "ford", "honda"]'</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>mean_hwy <span class="op">=</span> hwy_mpg[<span class="st">'hwy'</span>].mean()</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>mean_hwy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>np.float64(22.852941176470587)</code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="q1.-audi에서-생산한-자동차-중에-어떤-자동차-모델의-hwy고속도로-연비가-높은지-알아보려고-한다." class="level3">
+<h3 class="anchored" data-anchor-id="q1.-audi에서-생산한-자동차-중에-어떤-자동차-모델의-hwy고속도로-연비가-높은지-알아보려고-한다.">Q1. ’audi’에서 생산한 자동차 중에 어떤 자동차 모델의 hwy(고속도로 연비)가 높은지 알아보려고 한다.</h3>
+</section>
+<section id="audi-에서-생산한-자동차-중-hwy가-15위에-해당하는-자동차의-데이터를-출력하세요." class="level3">
+<h3 class="anchored" data-anchor-id="audi-에서-생산한-자동차-중-hwy가-15위에-해당하는-자동차의-데이터를-출력하세요.">audi 에서 생산한 자동차 중 hwy가 1~5위에 해당하는 자동차의 데이터를 출력하세요.</h3>
+<div id="be64a321" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mpg_audi <span class="op">=</span> mpg.query(<span class="st">'manufacturer == "audi"'</span>)<span class="op">\</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>              .sort_values(<span class="st">'hwy'</span>, ascending<span class="op">=</span><span class="va">False</span>)<span class="op">\</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>              .head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

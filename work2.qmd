@@ -2,3 +2,84 @@
 title: "work2"
 jupyter: python3
 ---
+
+0716
+### Q1. 자동차 배기량에 따라 고속도로 연비가 다른지 알아보려고 한다. 
+### displ(배기량)이 4이하인 자동차와 5 이상인 자동차 중 어떤 자동차의 hwy(고속도로 연비)평균이 더 높은지 알아보세요
+
+```{python}
+import pandas as pd
+import numpy as np
+
+mpg = pd.read_csv('data/mpg.csv')
+
+displ_4=mpg.query('displ  <= 4')
+displ_4
+
+```
+
+```{python}
+displ_5=mpg.query('displ  >= 5')
+displ_5
+```
+
+```{python}
+displ_4_mean=displ_4['hwy'].mean() # displ_4는 데이터 프레임 형식이니까, 내가 알고 싶은 배기량 열로 접근
+displ_5_mean=displ_5['hwy'].mean()
+
+displ_4_mean
+```
+
+```{python}
+displ_5_mean
+
+result = displ_4_mean > displ_5_mean
+print(result)
+
+print("결과: 배기량이 4인 자동차의 고속도로 연비 평균이 더 높다.")
+```
+
+### Q2. 자동차 제조 회사에 따라 도시 연비가 어떻게 다른지 알아보려고 합니다.
+### 'audi'와 'toyota' 중 어느 manufacturer 의 cty(도시연비) 평균이 더 높은지 알아보세요.
+
+```{python}
+mpg_audi = mpg.query('manufacturer == "audi"')
+
+```
+```{python}
+mpg_toyota = mpg.query('manufacturer == "toyota"')
+mpg_toyota
+```
+
+```{python}
+mpg_audi['hwy'].mean()
+```
+```{python}
+mpg_toyota['hwy'].mean()
+print("결과: 아우디 회사의 도시연비 평균이 더 높다.")
+```
+
+
+
+### Q3. 'chevoret', 'ford', 'honda' 자동차의 고속도로 연비평균을 알아보려고 합니다.
+### 세 회사의 데이터를 추출한 다음 hwy 전체 평균을 구해 보세요.
+```{python}
+
+hwy_mpg = mpg.query('manufacturer in ["chevoret", "ford", "honda"]')
+mean_hwy = hwy_mpg['hwy'].mean()
+mean_hwy
+```
+
+-------------------------------------------------
+
+
+### Q1. 'audi'에서 생산한 자동차 중에 어떤 자동차 모델의 hwy(고속도로 연비)가 높은지 알아보려고 한다.
+### audi 에서 생산한 자동차 중 hwy가 1~5위에 해당하는 자동차의 데이터를 출력하세요.
+
+```{python}
+mpg_audi = mpg.query('manufacturer == "audi"')\
+              .sort_values('hwy', ascending=False)\
+              .head(5)
+
+```
+
