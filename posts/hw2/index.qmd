@@ -1,8 +1,10 @@
 ---
-title: "work2"
+title: ":LS 빅데이터 스쿨 HomeWork2"
+author: "Subeen"
+date: "2021-07-17"
+categories: [bigdata]
 jupyter: python3
 ---
-
 0716
 ### Q1. 자동차 배기량에 따라 고속도로 연비가 다른지 알아보려고 한다. 
 ### displ(배기량)이 4이하인 자동차와 5 이상인 자동차 중 어떤 자동차의 hwy(고속도로 연비)평균이 더 높은지 알아보세요
@@ -12,7 +14,7 @@ import pandas as pd
 import numpy as np
 
 mpg = pd.read_csv('data/mpg.csv')
-
+mpg
 displ_4=mpg.query('displ  <= 4')
 displ_4
 
