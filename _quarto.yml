@@ -9,9 +9,9 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
-      - work1.qmd
-      - work2.qmd
+      - href: about.qmd
+      - href: blog.qmd
+        text: Blog
       
     right:
       - text: GitHub
