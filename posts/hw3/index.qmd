@@ -1,0 +1,131 @@
+---
+title: ":LS 빅데이터 스쿨 HomeWork3"
+author: "Subeen"
+date: "2024-07-22"
+categories: [bigdata]
+jupyter: python3
+---
+# seaborn, matplotlib, plotly 이용한 그래프
+```{python}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+mpg = pd.read_csv('data/mpg.csv')
+
+df_mpg = mpg.groupby('drv', as_index = False) \
+            .agg(n = ('drv', 'count'))
+
+df_mpg             
+
+```
+
+
+# seaborn 사용한 산점도
+```{python}
+plt.figure(figsize=(5, 4))
+sns.scatterplot(data = mpg, 
+                x = 'displ', y = 'hwy',
+                hue ='drv') \
+   .set(xlim =[3, 6], ylim=[10, 30])
+plt.show()
+
+```
+
+# plotly사용한 산점도
+```{python}
+import plotly.express as px
+px.scatter(data_frame =mpg, x = 'cty', y= 'hwy', color = 'drv')
+```
+
+
+# sns.barplot
+```{python}
+sns.barplot(data= df_mpg, x = 'drv', y='n')
+plt.show()
+```
+
+# sns.countplot
+
+```{python}
+sns.countplot(data= mpg, x='drv')
+plt.show()
+
+```
+
+----------------------------------------------------------------------
+
+# 204p.
+
+## Q1. mpg 데이터의 cty(도시 연비)와 hwy(고속도로 연비)간에 어떤 관계가 있는지 알아보려고 한다. \   x축은 cty, y축은 hwy로 된 산점도를 만들어보라.
+
+```{python}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+mpg = pd.read_csv('data/mpg.csv')
+sns.scatterplot(data = mpg, 
+                x = 'cty', y = 'hwy')
+
+plt.show()
+ 
+```
+
+## Q2. 미국의 지역별 인구통계 정보를 담은 midwest.csv 를 이용해 전체 인구와 아시아인 인구 간에 \
+어떤 관계가 있는지 알아보려고한다.  x축은  poptotal(인구 전체), y 축은 popasian(아시아인 인구) \
+로 된 산점도를 만들어라. 전체 인구는 50만 명 이하, 아시아인 인구는 1만명 이하인 지역만 산점도에 표시
+
+```{python}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+midwest= pd.read_csv('data/midwest.csv')
+
+sns.scatterplot(data = midwest, x = 'poptotal', y = 'popasian') \
+   .set(xlim= (0, 5000000), ylim=(0,10000))
+
+plt.show()
+```
+
+--------------------------------------------------------------------------
+
+# 211p.
+
+##  Q1. 어떤 회사에서 생산한 'suv' 차종의 도시 연비가 높은지 알아보려고 한다. 'suv' 차종을 대상으로 \ cty(도시 연비) 평균이 가장 높은 회사 다섯 곳 을 막대 그래프로 표현해라. 막대는 연비가 높은 순으로 정렬하라
+ 
+ 
+```{python}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+mpg = pd.read_csv('data/mpg.csv')
+
+df  =mpg.query("category == 'suv'") \
+        .groupby('manufacturer', as_index=False) \
+        .agg( mean_cty = ('cty', 'mean' )) \
+        .sort_values('mean_cty', ascending=False)\
+        .head()
+df
+
+sns.barplot(data = df, x = 'manufacturer', y='mean_cty')
+```
+
+## Q2. 자동차 중에 어떤  category(자동차 종류)가 많은지 알아보려고 한다.   sns.barplot()을 이용해 \ 자동차 종류별 빈도를 표현한 막대 그래프를 만들어보라. 막대는 빈도가 높은 순으로 정렬하기.
+
+```{python}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+mpg = pd.read_csv('data/mpg.csv')
+
+df_mpg = mpg.groupby('category', as_index=False) \
+            .agg(count = ('category', 'count')) \
+            .sort_values('count', ascending=False)
+df_mpg
+
+```
+```{python}
+import seaborn as sns
+sns.barplot(data= df_mpg, x = 'category' , y = 'count')
+```
+
