@@ -5,6 +5,69 @@ date: "2024-07-22"
 categories: [bigdata]
 jupyter: python3
 ---
+
+### 1. 정규분포 pdf 값을 계산하는 자신만의 파이썬 함수를 정의하고, 정규분포 mu = 3, sigma = 2 의 pdf를 그릴 것.
+
+```{python}
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+import math
+
+
+
+def normal_pdf(x, mu, sigma):
+    a = 1 / (np.sqrt(2 * np.pi * (sigma**2)))
+    b = np.exp(-0.5 * ((x - mu) / sigma) ** 2)
+    return a * b
+
+x = np.linspace(-10, 10, 100)
+y = normal_pdf(x, 3, 2)
+
+plt.plot(x, y)
+plt.show()
+```
+
+### 2. 파이썬 scipy 패키지 사용해서 다음과 같은 확률을 구하시오.
+
+
+#### X ~ N(2, 3^2)
+```{python}
+from scipy.stats import norm
+
+# 1) P(X < 3)
+norm_cdf = norm.cdf(3, 2, 3)
+
+print(f"P(X < 3)일 확률은 {norm_cdf:.2f} 이다.")
+
+#2) P(2 < X < 5)
+norm_cdf2 = norm.cdf(5, 2, 3) - norm.cdf(2, 2, 3)
+
+print(f"P(2 < X < 5)일 확률은 {norm_cdf2:.2f} 이다.")
+
+#3) P(X < 3 or X > 7)
+norm_cdf3 = norm.cdf(7, 2, 3) - norm.cdf(3, 2, 3)
+
+print(f"P(X < 3 or X > 7)일 확률은 {1 - norm_cdf3:.2f} 이다.")
+```
+
+### 3. LS 빅데이터 스쿨 학생들의 중간고사 점수는 평균이 30이고, 분산이 4인 정규분포를 따른다. \
+상위 5%에 해당하는 학생의 점수는?
+
+
+```{python}
+import scipy.stats as stats
+
+mu=30
+sigma = 2
+
+score = stats.norm.ppf(0.95, mu, sigma)
+print(f"점수는 {score:.2f} 입니다.")
+```
+
+
+
 # seaborn, matplotlib, plotly 이용한 그래프
 ```{python}
 import pandas as pd

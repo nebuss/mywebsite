@@ -116,7 +116,7 @@
     "href": "posts/hw3/index.html",
     "title": ":LS 빅데이터 스쿨 HomeWork3",
     "section": "",
-    "text": "import pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nmpg = pd.read_csv('data/mpg.csv')\n\ndf_mpg = mpg.groupby('drv', as_index = False) \\\n            .agg(n = ('drv', 'count'))\n\ndf_mpg             \n\n\n\n\n\n\n\n\ndrv\nn\n\n\n\n\n0\n4\n103\n\n\n1\nf\n106\n\n\n2\nr\n25"
+    "text": "import pandas as pd\nimport numpy as np\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nimport math\n\n\n\ndef normal_pdf(x, mu, sigma):\n    a = 1 / (np.sqrt(2 * np.pi * (sigma**2)))\n    b = np.exp(-0.5 * ((x - mu) / sigma) ** 2)\n    return a * b\n\nx = np.linspace(-10, 10, 100)\ny = normal_pdf(x, 3, 2)\n\nplt.plot(x, y)\nplt.show()"
   },
   {
     "objectID": "posts/hw3/index.html#q1.-mpg-데이터의-cty도시-연비와-hwy고속도로-연비간에-어떤-관계가-있는지-알아보려고-한다.",
