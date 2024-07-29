@@ -74,7 +74,7 @@
     "href": "blog.html",
     "title": "글 목록",
     "section": "",
-    "text": ":LS 빅데이터 스쿨 HomeWork3\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 22, 2024\n\n\nSubeen\n\n\n\n\n\n\n\n\n\n\n\n\n:LS 빅데이터 스쿨 HomeWork1\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 17, 2024\n\n\nSubeen\n\n\n\n\n\n\n\n\n\n\n\n\n:LS 빅데이터 스쿨 HomeWork2\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 17, 2024\n\n\nSubeen\n\n\n\n\n\n\nNo matching items"
+    "text": ":LS 빅데이터 스쿨 HomeWork4\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 29, 2024\n\n\nSubeen\n\n\n\n\n\n\n\n\n\n\n\n\n:LS 빅데이터 스쿨 HomeWork3\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 22, 2024\n\n\nSubeen\n\n\n\n\n\n\n\n\n\n\n\n\n:LS 빅데이터 스쿨 HomeWork1\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 17, 2024\n\n\nSubeen\n\n\n\n\n\n\n\n\n\n\n\n\n:LS 빅데이터 스쿨 HomeWork2\n\n\n\n\n\n\nbigdata\n\n\n\n\n\n\n\n\n\nJul 17, 2024\n\n\nSubeen\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/hw1/index.html",
@@ -180,5 +180,26 @@
     "title": ":LS 빅데이터 스쿨 HomeWork3",
     "section": "Q1. 어떤 회사에서 생산한 ‘suv’ 차종의 도시 연비가 높은지 알아보려고 한다. ‘suv’ 차종을 대상으로  cty(도시 연비) 평균이 가장 높은 회사 다섯 곳 을 막대 그래프로 표현해라. 막대는 연비가 높은 순으로 정렬하라",
     "text": "Q1. 어떤 회사에서 생산한 ‘suv’ 차종의 도시 연비가 높은지 알아보려고 한다. ‘suv’ 차종을 대상으로  cty(도시 연비) 평균이 가장 높은 회사 다섯 곳 을 막대 그래프로 표현해라. 막대는 연비가 높은 순으로 정렬하라\n\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\nmpg = pd.read_csv('data/mpg.csv')\n\ndf  =mpg.query(\"category == 'suv'\") \\\n        .groupby('manufacturer', as_index=False) \\\n        .agg( mean_cty = ('cty', 'mean' )) \\\n        .sort_values('mean_cty', ascending=False)\\\n        .head()\ndf\n\nsns.barplot(data = df, x = 'manufacturer', y='mean_cty')"
+  },
+  {
+    "objectID": "posts/hw4/index.html",
+    "href": "posts/hw4/index.html",
+    "title": "표본 분산 계산 시 왜 n-1로 나누는지 알아보도록 하겠습니다. \\",
+    "section": "",
+    "text": "균일분포 (3, 7)에서 20개의 표본을 뽑아서 분산을 2가지 방법으로 추정해보세요. n-1로 나눈 것을 s_2, n으로 나눈 것을 k_2로 정의하고, s_2의 분포와 k_2의 분포를 그려주세요! (10000개 사용)\n\n# s_2 분포\nfrom scipy.stats import uniform\nimport matplotlib.pyplot as plt\n\nx = uniform.rvs(loc=3, scale=4, size=20*10000)\nx = x.reshape(-1,20)\nx.shape\n\ns_2 = x.var(axis=1, ddof=1)\ns_2\n\n# 히스토그램 그리기\nimport seaborn as sns\nfrom scipy.stats import norm\nsns.histplot(s_2, stat=\"density\", color = \"orange\")\nplt.axvline(x.var(), color=\"green\", linewidth = 2)\nplt.show()\nplt.clf()\n\n\n\n\n\n\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;\n\n\n\n# k_2 분포\nfrom scipy.stats import uniform\nimport matplotlib.pyplot as plt\n\nx = uniform.rvs(loc=3, scale=4, size=20*10000)\nx = x.reshape(-1,20)\nx.shape\n\nk_2 = x.var(axis=1, ddof=0)\nk_2\n\n# 히스토그램 그리기\nimport seaborn as sns\nfrom scipy.stats import norm\nsns.histplot(k_2, stat=\"density\", color = \"orange\")\nplt.axvline(x.var(), color=\"green\",  linewidth = 2)\nplt.show()\n\n\n\n\n\n\n\n\n\n결과를 살펴보고, 왜 n-1로 나눈 것을 분산을 추정하는 지표로 사용하는 것이 타당한지 써주세요!\nn-1로 나눈것의 표본분산이 모분산에 더 가깝다."
+  },
+  {
+    "objectID": "posts/hw4/index.html#n-1로-나눈-것을-s_2-n으로-나눈-것을-k_2로-정의하고-s_2의-분포와-k_2의-분포를-그려주세요-10000개-사용",
+    "href": "posts/hw4/index.html#n-1로-나눈-것을-s_2-n으로-나눈-것을-k_2로-정의하고-s_2의-분포와-k_2의-분포를-그려주세요-10000개-사용",
+    "title": "표본 분산 계산 시 왜 n-1로 나누는지 알아보도록 하겠습니다. \\",
+    "section": "n-1로 나눈 것을 s_2, n으로 나눈 것을 k_2로 정의하고, s_2의 분포와 k_2의 분포를 그려주세요! (10000개 사용)\n",
+    "text": "n-1로 나눈 것을 s_2, n으로 나눈 것을 k_2로 정의하고, s_2의 분포와 k_2의 분포를 그려주세요! (10000개 사용)\n\n각 분포 그래프에 모분산의 위치에 녹색 막대를 그려주세요.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.stats import uniform\n\n\nsamples =uniform.rvs(loc=3, scale=7, size=20)"
+  },
+  {
+    "objectID": "posts/hw4/index.html#균일분포-3-7에서-20개의-표본을-뽑아서-분산을-2가지-방법으로-추정해보세요.-n-1로-나눈-것을-s_2-n으로-나눈-것을-k_2로-정의하고-s_2의-분포와-k_2의-분포를-그려주세요-10000개-사용",
+    "href": "posts/hw4/index.html#균일분포-3-7에서-20개의-표본을-뽑아서-분산을-2가지-방법으로-추정해보세요.-n-1로-나눈-것을-s_2-n으로-나눈-것을-k_2로-정의하고-s_2의-분포와-k_2의-분포를-그려주세요-10000개-사용",
+    "title": ":LS 빅데이터 스쿨 HomeWork4",
+    "section": "균일분포 (3, 7)에서 20개의 표본을 뽑아서 분산을 2가지 방법으로 추정해보세요. n-1로 나눈 것을 s_2, n으로 나눈 것을 k_2로 정의하고, s_2의 분포와 k_2의 분포를 그려주세요! (10000개 사용)",
+    "text": "균일분포 (3, 7)에서 20개의 표본을 뽑아서 분산을 2가지 방법으로 추정해보세요. n-1로 나눈 것을 s_2, n으로 나눈 것을 k_2로 정의하고, s_2의 분포와 k_2의 분포를 그려주세요! (10000개 사용)\n\n# s_2 분포\nfrom scipy.stats import uniform\nimport matplotlib.pyplot as plt\n\nx = uniform.rvs(loc=3, scale=4, size=20*10000)\nx = x.reshape(-1,20)\nx.shape\n\ns_2 = x.var(axis=1, ddof=1)\ns_2\n\n# 히스토그램 그리기\nimport seaborn as sns\nfrom scipy.stats import norm\nsns.histplot(s_2, stat=\"density\")\nplt.axvline(x.var(), color=\"green\", linewidth = 2)\nplt.show()\nplt.clf()\n\n\n\n\n\n\n\n\n&lt;Figure size 672x480 with 0 Axes&gt;\n\n\n\n# k_2 분포\nfrom scipy.stats import uniform\nimport matplotlib.pyplot as plt\n\nx = uniform.rvs(loc=3, scale=4, size=20*10000)\nx = x.reshape(-1,20)\nx.shape\n\nk_2 = x.var(axis=1, ddof=0)\nk_2\n\n# 히스토그램 그리기\nimport seaborn as sns\nfrom scipy.stats import norm\nsns.histplot(k_2, stat=\"density\")\nplt.axvline(x.var(), color=\"green\",  linewidth = 2)\nplt.show()"
   }
 ]
