@@ -1,0 +1,110 @@
+---
+title: ":LS 빅데이터 스쿨 HomeWork5"
+author: "Subeen"
+date: "2024-07-30"
+categories: [bigdata]
+jupyter: python3
+---
+
+### 챕터 9-2 설문조사 그래프에서 각 성별 95% 신뢰구간 계산후 그리기. norm.ppf() 사용해서 그릴 것. \
+모분산은 표본 분산을 사용해서 추정
+
+
+```{python}
+import pandas as pd
+import numpy as np
+import seaborn as sns
+
+raw_welfare = pd.read_spss('Koweps_hpwc14_2019_beta2.sav')
+
+welfare =raw_welfare.copy()
+
+welfare
+welfare.shape
+welfare.info()
+welfare.describe()
+
+welfare = welfare.rename(
+  columns = {'h14_g3' : 'sex',
+             'h14_g4' : 'birth',
+             'h14_g10' : 'marriage_type',
+             'h14_g11' : 'religion',
+             'p1402_8aq1' : 'income',
+             'h14_eco9' : 'code_job',
+             'h14_reg7' : 'code_region'}
+)
+
+welfare.columns
+
+
+welfare['sex'].dtypes
+welfare['sex'].value_counts()
+
+# 이상치 결측처리 
+welfare['sex'] = np.where(welfare['sex'] ==9, np.nan, welfare['sex'])
+# 결측치 확인
+welfare['sex'].isna().sum()
+
+# 숫자1 남자. 숫자2 여자
+
+welfare['sex'] = np.where(welfare['sex'] ==1, 'male', 'female')
+
+# 빈도 구하기
+welfare['sex'].value_counts()
+
+# 빈도 막대그래프 그리기
+import matplotlib.pyplot as plt
+sns.countplot(data = welfare, x = 'sex')
+plt.show()
+
+
+
+welfare['income'].describe()
+welfare['income'].isna().sum() 
+
+
+welfare['income'] = np.where(welfare['income'] == 9999, np.nan, welfare['income'])
+welfare['income'].isna().sum()
+
+
+sex_income = welfare.dropna(subset = 'income') \
+                    .groupby('sex', as_index = False) \
+                    .agg(mean_income = ('income', 'mean'),
+                         std_income=('income', 'std'),
+                         count_income=('income', 'count'))
+sex_income  
+sns.barplot(data= sex_income, x = 'sex', y ='mean_income', hue='sex')
+plt.show()
+plt.clf()
+
+```
+
+
+# 신뢰구간 구하기
+
+```{python}
+
+import scipy.stats as stats
+
+sex_income['ci_lower'] = sex_income['mean_income'] - 1.96 * (sex_income['std_income'] / np.sqrt(sex_income['count_income']))
+
+sex_income['ci_lower']
+```
+
+```{python}
+sex_income['ci_upper'] = sex_income['mean_income'] + 1.96* (sex_income['std_income'] / np.sqrt(sex_income['count_income']))
+sex_income['ci_upper']
+```
+# 신뢰구간 나타낸 막대그래프 그리기
+```{python}
+sns.barplot(data=welfare, x='sex', y='income', errorbar=('ci', 95), hue='sex')
+plt.xlabel('Sex')
+plt.ylabel('mean_income')
+plt.show()
+plt.clf()
+```
+
+
+
+
+
