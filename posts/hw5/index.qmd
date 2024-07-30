@@ -9,7 +9,7 @@ jupyter: python3
 ### 챕터 9-2 설문조사 그래프에서 각 성별 95% 신뢰구간 계산후 그리기. norm.ppf() 사용해서 그릴 것. \
 모분산은 표본 분산을 사용해서 추정
 
-
+### 수업내용
 ```{python}
 import pandas as pd
 import numpy as np
