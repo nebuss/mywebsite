@@ -2,7 +2,10 @@
   {
     "listing": "/blog.html",
     "items": [
+<<<<<<< HEAD
       "/posts/hw5/index.html",
+=======
+>>>>>>> 6d550963f2af6b248674c94c5617f92c47200f17
       "/posts/hw4/index.html",
       "/posts/hw3/index.html",
       "/posts/hw1/index.html",
