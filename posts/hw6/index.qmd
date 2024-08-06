@@ -51,6 +51,7 @@ sample_mean
 
 ```{python}
 t_value = (sample_mean - mu0) / (sample_std / np.sqrt(15))
+t_value
 ```
 
 
