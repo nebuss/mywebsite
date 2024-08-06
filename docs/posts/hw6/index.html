@@ -207,14 +207,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>슬통 자동자는 매해 출시되는 신형 자동차의 에너지 소비효율 등급을 1등급으로 유지하고 있다. 22 년 개발된 신형 모델이 한국 자동차 평가원에서 설정한 에너지 소비 효율등급 1등급을 받을 수 있을지 검정하려한다. 평가원에 따르면 1등급의 기준은 평균 복합 에너지 소비효율이 16.0 이상인 경우 부여 한다고 한다. 다음은 신형 자동차 15대의 복합 에너지소비효율 측정한 결과이다. 15.078, 15.752, 15.549, 15.56, 16.098, 13.277, 15.462, 16.116, 15.214, 16.93, 14.118, 14.927, 15.382, 16.709, 16.804 표본에 의하여 판단해볼때, 현대자동차의 신형 모델은 에너지 효율 1등급으로 판단할 수 있을지 판단해보시오. (유의수준 1%로 설정)</p>
 <section id="검정을-위한-가설을-명확하게-서술하시오." class="level3">
 <h3 class="anchored" data-anchor-id="검정을-위한-가설을-명확하게-서술하시오.">1. 검정을 위한 가설을 명확하게 서술하시오.</h3>
-<div id="0edd17bb" class="cell" data-execution_count="1">
+<div id="8bf989e1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#귀무가설 H0: 신형 모델 1등급의 평균 복합 에너지 소비효율은 16.0 이상이다. mu&gt;=16</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#대립가설 Ha: 신형 모델 1등급의 평균 복합 에너지 소비효율은 16.0 미만이다. mu &lt; 16</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="검정통계량-계산하시오." class="level3">
 <h3 class="anchored" data-anchor-id="검정통계량-계산하시오.">2. 검정통계량 계산하시오.</h3>
-<div id="cad422e2" class="cell" data-execution_count="2">
+<div id="29de29cc" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -228,39 +228,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>sample_std <span class="op">=</span> np.std(data, ddof<span class="op">=</span><span class="dv">1</span>) <span class="co"># 표본표준편차</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>sample_std</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>np.float64(0.9802946690129646)</code></pre>
 </div>
 </div>
-<div id="b7ea211c" class="cell" data-execution_count="3">
+<div id="4a30bce2" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sample_mean <span class="op">=</span> np.mean(data) <span class="co"># 표본평균</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sample_mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>np.float64(15.531733333333333)</code></pre>
 </div>
 </div>
-<div id="54eb5f2f" class="cell" data-execution_count="4">
+<div id="985e1434" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>t_value <span class="op">=</span> (sample_mean <span class="op">-</span> mu0) <span class="op">/</span> (sample_std <span class="op">/</span> np.sqrt(<span class="dv">15</span>))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>t_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>np.float64(-1.8500447456376756)</code></pre>
 </div>
 </div>
 </section>
 <section id="pvalue을-구하세요." class="level3">
 <h3 class="anchored" data-anchor-id="pvalue을-구하세요.">3. p‑value을 구하세요.</h3>
-<div id="84e4e97d" class="cell" data-execution_count="5">
+<div id="b5875354" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> t</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>p_value <span class="op">=</span> t.cdf(t_value, df<span class="op">=</span><span class="dv">14</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>p_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>np.float64(0.042762417664207845)</code></pre>
 </div>
 </div>
 </section>
 <section id="현대자동차의-신형-모델의-평균-복합-에너지-소비효율에-대하여-95-신뢰구간을-구해보세요." class="level3">
 <h3 class="anchored" data-anchor-id="현대자동차의-신형-모델의-평균-복합-에너지-소비효율에-대하여-95-신뢰구간을-구해보세요.">4. 현대자동차의 신형 모델의 평균 복합 에너지 소비효율에 대하여 95% 신뢰구간을 구해보세요.</h3>
-<div id="f2ec4a58" class="cell" data-execution_count="6">
+<div id="534b547f" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 신뢰수준에 따른 t 임계값 계산</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>confidence_level <span class="op">=</span> <span class="fl">0.95</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> confidence_level <span class="co"># 유의수준</span></span>
@@ -270,7 +270,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>margin_of_error <span class="op">=</span> t_crit <span class="op">*</span> (sample_std <span class="op">/</span> np.sqrt(<span class="dv">15</span>))</span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>confidence_interval <span class="op">=</span> (sample_mean <span class="op">-</span> margin_of_error, sample_mean <span class="op">+</span> margin_of_error)</span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>confidence_interval</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>(np.float64(14.988864240339733), np.float64(16.074602426326933))</code></pre>
 </div>
 </div>
