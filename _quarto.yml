@@ -10,8 +10,7 @@ website:
       - href: index.qmd
         text: Home
       - href: about.qmd
-      - href: blog.qmd
-        text: Blog
+      - text: Blog
         href: posts/index.qmd
       
     right:
@@ -21,9 +20,7 @@ website:
 format:
   html:
     theme: journal
-    css: styles.css
     toc: true
-    
     highlight: github
 
 
