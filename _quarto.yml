@@ -12,6 +12,7 @@ website:
       - href: about.qmd
       - href: blog.qmd
         text: Blog
+        href: posts/index.qmd
       
     right:
       - text: GitHub
