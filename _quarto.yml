@@ -21,7 +21,6 @@ format:
   html:
     theme: journal
     toc: true
-    highlight: github
 
 
 

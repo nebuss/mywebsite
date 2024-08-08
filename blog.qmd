@@ -3,6 +3,6 @@ title: "글 목록"
 listing:
   contents: posts
   sort: "date desc"
-  type: default
+  type: grid
   categories: true
 ---
