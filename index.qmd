@@ -10,7 +10,9 @@ about:
     - icon: github
       text: Github
       href: https://github.com/nebuss/mywebsite
+    
 ---
 
+ 
 
 안녕하세요 데이터 분석하는 박수빈입니다
