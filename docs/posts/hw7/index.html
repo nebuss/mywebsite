@@ -227,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>2022년에 실시 된 ADP 실기 시험의 통계파트 표준점수는 평균이 30, 표준편차가 5인 정규분포를 따른다고 한다.</p>
 <section id="adp-실기-시험의-통계파트-표준점수의-밀도함수를-그려보세요." class="level3">
 <h3 class="anchored" data-anchor-id="adp-실기-시험의-통계파트-표준점수의-밀도함수를-그려보세요.">1. ADP 실기 시험의 통계파트 표준점수의 밀도함수를 그려보세요.</h3>
-<div id="5fcde84c" class="cell" data-execution_count="1">
+<div id="46b245f4" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
@@ -257,7 +257,7 @@ No artists with labels found to put in legend.  Note that artists whose label st
 </section>
 <section id="adp-수험생을-임의로-1명을-선택하여-통계-점수를-조회했을때-45점-보다-높은-점수를-받았을-확률을-구하세요." class="level3">
 <h3 class="anchored" data-anchor-id="adp-수험생을-임의로-1명을-선택하여-통계-점수를-조회했을때-45점-보다-높은-점수를-받았을-확률을-구하세요.">2. ADP 수험생을 임의로 1명을 선택하여 통계 점수를 조회했을때 45점 보다 높은 점수를 받았을 확률을 구하세요.</h3>
-<div id="cfd7a344" class="cell" data-execution_count="2">
+<div id="1d78463c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>pro <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> norm.cdf(<span class="dv">45</span>, <span class="dv">30</span>, <span class="dv">5</span>)</span>
@@ -269,7 +269,7 @@ No artists with labels found to put in legend.  Note that artists whose label st
 </section>
 <section id="슬통이는-상위-10에-해당하는-점수를-얻었다고-한다면-슬통이의-점수는-얼마인지-계산해보세요." class="level3">
 <h3 class="anchored" data-anchor-id="슬통이는-상위-10에-해당하는-점수를-얻었다고-한다면-슬통이의-점수는-얼마인지-계산해보세요.">3. 슬통이는 상위 10%에 해당하는 점수를 얻었다고 한다면, 슬통이의 점수는 얼마인지 계산해보세요.</h3>
-<div id="4693404d" class="cell" data-execution_count="3">
+<div id="647d4d78" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"슬통이의 점수: </span><span class="sc">{</span>norm<span class="sc">.</span>ppf(<span class="fl">0.9</span>, <span class="dv">30</span>, <span class="dv">5</span>)<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>슬통이의 점수: 36.408</code></pre>
@@ -278,7 +278,7 @@ No artists with labels found to put in legend.  Note that artists whose label st
 </section>
 <section id="슬기로운-통계생활의-해당-회차-수강생은-16명이었다고-한다.-16명의-통계-파트-점수를-평균-내었을-때-이-평균값이-따르는-분포의-확률밀도-함수를-1번의-그래프와-겹쳐-그려보세요." class="level3">
 <h3 class="anchored" data-anchor-id="슬기로운-통계생활의-해당-회차-수강생은-16명이었다고-한다.-16명의-통계-파트-점수를-평균-내었을-때-이-평균값이-따르는-분포의-확률밀도-함수를-1번의-그래프와-겹쳐-그려보세요.">4. 슬기로운 통계생활의 해당 회차 수강생은 16명이었다고 한다. 16명의 통계 파트 점수를 평균 내었을 때, 이 평균값이 따르는 분포의 확률밀도 함수를 1번의 그래프와 겹쳐 그려보세요.</h3>
-<div id="25d19f0b" class="cell" data-execution_count="4">
+<div id="280f2e71" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
@@ -301,7 +301,7 @@ No artists with labels found to put in legend.  Note that artists whose label st
 </section>
 <section id="슬기로운-통계생활-adp-반-수강생들의-통계점수를-평균내었다고-할-때-이-값이-38점보다-높게나올-확률을-구하세요." class="level3">
 <h3 class="anchored" data-anchor-id="슬기로운-통계생활-adp-반-수강생들의-통계점수를-평균내었다고-할-때-이-값이-38점보다-높게나올-확률을-구하세요.">5. 슬기로운 통계생활 ADP 반 수강생들의 통계점수를 평균내었다고 할 때, 이 값이 38점보다 높게나올 확률을 구하세요.</h3>
-<div id="66de74f7" class="cell" data-execution_count="5">
+<div id="8e934b13" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sample_std <span class="op">=</span> <span class="dv">5</span> <span class="op">/</span> np.sqrt(<span class="dv">16</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pro_up_38 <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> norm.cdf(<span class="dv">38</span>, <span class="dv">30</span>, scale<span class="op">=</span>sample_std)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"수강생 평균이 38점보다 높을 확률: </span><span class="sc">{</span>pro_up_38<span class="sc">:.5f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -316,7 +316,7 @@ No artists with labels found to put in legend.  Note that artists whose label st
 <p>Covid‑19의 발병률은 1%라고 한다. 다음은 이번 코로나 사태로 인하여 코로나 의심 환자들 1,085 명을 대상으로 슬통 회사의 “다잡아” 키트를 사용하여 양성 반응을 체크한 결과이다.</p>
 <section id="다잡아-키트가-코로나-바이러스에-걸린-사람을-양성으로-잡아낼-확률을-계산하세요." class="level3">
 <h3 class="anchored" data-anchor-id="다잡아-키트가-코로나-바이러스에-걸린-사람을-양성으로-잡아낼-확률을-계산하세요.">1. 다잡아 키트가 코로나 바이러스에 걸린 사람을 양성으로 잡아낼 확률을 계산하세요.</h3>
-<div id="553aebd7" class="cell" data-execution_count="6">
+<div id="cc7a005b" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.image <span class="im">as</span> mpimg</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> mpimg.imread(<span class="st">'check.png'</span>)</span>
@@ -348,10 +348,10 @@ No artists with labels found to put in legend.  Note that artists whose label st
 <section id="covid19-발병률을-사용하여-키트의-결과값이-양성으로-나온-사람이-실제로-코로나-바이러스에-걸려있을-확률을-구하세요." class="level3">
 <h3 class="anchored" data-anchor-id="covid19-발병률을-사용하여-키트의-결과값이-양성으로-나온-사람이-실제로-코로나-바이러스에-걸려있을-확률을-구하세요.">3. Covid‑19 발병률을 사용하여, 키트의 결과값이 양성으로 나온 사람이 실제로 코로나 바이러스에 걸려있을 확률을 구하세요.</h3>
 <p>모르겠어요.</p>
-<div id="3c7cefea" class="cell" data-execution_count="7">
+<div id="a74fc854" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sol <span class="op">=</span> (<span class="fl">0.01</span> <span class="op">*</span> (<span class="dv">370</span> <span class="op">/</span> <span class="dv">385</span>)) <span class="op">/</span> (<span class="fl">0.01</span> <span class="op">*</span> (<span class="dv">370</span> <span class="op">/</span> <span class="dv">385</span>) <span class="op">+</span> <span class="fl">0.99</span> <span class="op">*</span> (<span class="dv">10</span> <span class="op">/</span> <span class="dv">700</span>))</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">round</span>(sol, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="60">
+<div class="cell-output cell-output-display" data-execution_count="75">
 <pre><code>0.405</code></pre>
 </div>
 </div>
@@ -361,7 +361,7 @@ No artists with labels found to put in legend.  Note that artists whose label st
 <h1>카이제곱분포와 표본분산</h1>
 <section id="자유도가-4인-카이제곱분포의-확률밀도함수를-그려보세요." class="level3">
 <h3 class="anchored" data-anchor-id="자유도가-4인-카이제곱분포의-확률밀도함수를-그려보세요.">1. 자유도가 4인 카이제곱분포의 확률밀도함수를 그려보세요.</h3>
-<div id="844555ce" class="cell" data-execution_count="8">
+<div id="a0866e9b" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> chi2</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -379,7 +379,7 @@ No artists with labels found to put in legend.  Note that artists whose label st
 </section>
 <section id="다음의-확률을-구해보세요.-𝑃-3-𝑋-5" class="level3">
 <h3 class="anchored" data-anchor-id="다음의-확률을-구해보세요.-𝑃-3-𝑋-5">2. 다음의 확률을 구해보세요. 𝑃 (3 ≤ 𝑋 ≤ 5)</h3>
-<div id="79cd2b6a" class="cell" data-execution_count="9">
+<div id="6ae39a93" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> <span class="dv">4</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>pro <span class="op">=</span> chi2.cdf(<span class="dv">5</span>, df) <span class="op">-</span> chi2.cdf(<span class="dv">3</span>, df)</span>
@@ -391,7 +391,7 @@ No artists with labels found to put in legend.  Note that artists whose label st
 </section>
 <section id="자유도가-4인-카이제곱분포에서-크기가-1000인-표본을-뽑은-후-히스토그램을-그려보세요." class="level3">
 <h3 class="anchored" data-anchor-id="자유도가-4인-카이제곱분포에서-크기가-1000인-표본을-뽑은-후-히스토그램을-그려보세요.">3. 자유도가 4인 카이제곱분포에서 크기가 1000인 표본을 뽑은 후, 히스토그램을 그려보세요.</h3>
-<div id="bb29a543" class="cell" data-execution_count="10">
+<div id="f6f84467" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> chi2</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> <span class="dv">4</span></span>
@@ -408,7 +408,7 @@ No artists with labels found to put in legend.  Note that artists whose label st
 </section>
 <section id="자유도가-4인-카이제곱분포를-따르는-확률변수에서-나올-수-있는-값-중-상위-5에-해당하는-값은-얼마인지-계산해보세요." class="level3">
 <h3 class="anchored" data-anchor-id="자유도가-4인-카이제곱분포를-따르는-확률변수에서-나올-수-있는-값-중-상위-5에-해당하는-값은-얼마인지-계산해보세요.">4.자유도가 4인 카이제곱분포를 따르는 확률변수에서 나올 수 있는 값 중 상위 5%에 해당하는 값은 얼마인지 계산해보세요.</h3>
-<div id="00dce06d" class="cell" data-execution_count="11">
+<div id="f1315d95" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> <span class="dv">4</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>value <span class="op">=</span> chi2.ppf(<span class="fl">0.95</span>, df)</span>
@@ -422,7 +422,7 @@ No artists with labels found to put in legend.  Note that artists whose label st
 </section>
 <section id="번에서-뽑힌-표본값들-중-상위-5에-위치한-표본의-값은-얼마인가요" class="level3">
 <h3 class="anchored" data-anchor-id="번에서-뽑힌-표본값들-중-상위-5에-위치한-표본의-값은-얼마인가요">5.3번에서 뽑힌 표본값들 중 상위 5%에 위치한 표본의 값은 얼마인가요?</h3>
-<div id="9dfb18ac" class="cell" data-execution_count="12">
+<div id="5812ef33" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> <span class="dv">4</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -436,21 +436,21 @@ No artists with labels found to put in legend.  Note that artists whose label st
 </section>
 <section id="평균이-3-표준편차가-2인-정규분포를-따르는-확률변수에서-크기가-20인-표본-𝑥1-𝑥20을-뽑은-후-표본분산을-계산한-것을-𝑠21-이라-생각해보죠.-다음을-수행해보세요" class="level3">
 <h3 class="anchored" data-anchor-id="평균이-3-표준편차가-2인-정규분포를-따르는-확률변수에서-크기가-20인-표본-𝑥1-𝑥20을-뽑은-후-표본분산을-계산한-것을-𝑠21-이라-생각해보죠.-다음을-수행해보세요">6. 평균이 3, 표준편차가 2인 정규분포를 따르는 확률변수에서 크기가 20인 표본, 𝑥1, …, 𝑥20,을 뽑은 후 표본분산을 계산한 것을 𝑠21 이라 생각해보죠. 다음을 수행해보세요!</h3>
-<div id="23418d78" class="cell" data-execution_count="13">
+<div id="20b289e2" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> norm</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> norm.rvs(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">20</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"평균이3, 표준편차가2, 크기가 20인 확률변수: </span><span class="sc">{</span>X<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>s2 <span class="op">=</span> np.var(X, ddof<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"표본분산:</span><span class="sc">{</span>s2<span class="sc">:}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>평균이3, 표준편차가2, 크기가 20인 확률변수: [7.86897943 2.87792008 0.55604542 1.63743512 1.43087609 4.68212575
- 0.73330274 4.13908651 3.22084082 2.78074265 5.53961171 4.67644201
- 3.58449796 4.39380388 1.63276229 1.50112658 1.5396435  2.83441164
- 0.83969932 0.55385919]
-표본분산:3.758063764323342</code></pre>
+<pre><code>평균이3, 표준편차가2, 크기가 20인 확률변수: [ 2.47067911  6.11886923  2.85968084  1.45479104  4.88553837  0.71964013
+  0.9874663   3.1091406   3.71121658  2.7979947   3.63517441  5.71158883
+  4.72826714  5.0441717   0.68070719 -0.03867574 -1.77039516  6.01060073
+  4.51889485  1.31279135]
+표본분산:4.854325114513815</code></pre>
 </div>
 </div>
-<div id="c3a65bfe" class="cell" data-execution_count="14">
+<div id="74007c89" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"같은 방법으로 500개의 𝑠2 들, 𝑠21, 𝑠22, ..., 𝑠2 500 발생시킵니다."</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>size <span class="op">=</span> <span class="dv">20</span> </span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>num_samples <span class="op">=</span> <span class="dv">500</span>  </span>
@@ -467,10 +467,10 @@ No artists with labels found to put in legend.  Note that artists whose label st
 <span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"500개의 표본분산 s2: </span><span class="sc">{</span>S2_values[<span class="dv">0</span>]<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>같은 방법으로 500개의 𝑠2 들, 𝑠21, 𝑠22, ..., 𝑠2 500 발생시킵니다.
-500개의 표본분산 s2: 2.597</code></pre>
+500개의 표본분산 s2: 3.779</code></pre>
 </div>
 </div>
-<div id="eaa2b697" class="cell" data-execution_count="15">
+<div id="eef9b921" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"발생한 500개의 𝑠2 들 각각에 4.75를 곱하고, 그것들의 히스토그램을 그려보세요. (히스토그램 을 그릴 때 probability = TRUE 옵션을 사용해서 그릴 것)"</span>)</span>
