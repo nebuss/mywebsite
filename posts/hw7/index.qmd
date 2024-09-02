@@ -103,7 +103,7 @@ round(sol, 3)
 
 ### 1. 자유도가 4인 카이제곱분포의 확률밀도함수를 그려보세요.
 ```{python}
-|from scipy.stats import chi2
+from scipy.stats import chi2
 import matplotlib.pyplot as plt
 import numpy as np
 k = np.linspace(0, 20, 100)
