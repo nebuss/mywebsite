@@ -1,0 +1,12 @@
+{
+  "hash": "66d64e70f9349c04de7702669457fdd3",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \":LS 빅데이터 스쿨 HomeWork6\"\nauthor: \"Subeen\"\ndate: \"2024-09-02\"\ncategories: [bigdata]\njupyter: python3\n---\n\n\n\n### 1. 자유도가 4인 카이제곱분포의 확률밀도함수를 그려보세요.\n\n::: {#2ede983d .cell execution_count=1}\n``` {.python .cell-code}\nfrom scipy.stats import chi2\nimport matplotlib.pyplot as plt\nimport numpy as np\nk = np.linspace(0, 20, 100)\ny = chi2.pdf(k, df=7)\nplt.plot(k, y, color='black')\n```\n\n::: {.cell-output .cell-output-display}\n![](index_files/figure-html/cell-2-output-1.png){width=579 height=411}\n:::\n:::\n\n\n### 2. 다음의 확률을 구해보세요. 𝑃 (3 ≤ 𝑋 ≤ 5)\n\n::: {#a01a672c .cell execution_count=2}\n``` {.python .cell-code}\ndf = 4\n\npro = chi2.cdf(5, df) - chi2.cdf(3, df)\nprint(f\"자유도가 4인 카이제곱분포가 (3 ≤ 𝑋 ≤ 5)일 확률: {pro:.3f}\")\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n자유도가 4인 카이제곱분포가 (3 ≤ 𝑋 ≤ 5)일 확률: 0.271\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

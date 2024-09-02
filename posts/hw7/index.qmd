@@ -1,0 +1,28 @@
+---
+title: ":LS 빅데이터 스쿨 HomeWork7"
+author: "Subeen"
+date: "2024-09-02"
+categories: [bigdata]
+jupyter: python3
+---
+
+
+### 1. 자유도가 4인 카이제곱분포의 확률밀도함수를 그려보세요.
+```{python}
+from scipy.stats import chi2
+import matplotlib.pyplot as plt
+import numpy as np
+k = np.linspace(0, 20, 100)
+y = chi2.pdf(k, df=7)
+plt.plot(k, y, color='black')
+```
+
+### 2. 다음의 확률을 구해보세요. 𝑃 (3 ≤ 𝑋 ≤ 5)
+
+```{python}
+df = 4
+
+pro = chi2.cdf(5, df) - chi2.cdf(3, df)
+print(f"자유도가 4인 카이제곱분포가 (3 ≤ 𝑋 ≤ 5)일 확률: {pro:.3f}")
+```
+
