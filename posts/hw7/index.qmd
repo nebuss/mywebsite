@@ -26,3 +26,79 @@ pro = chi2.cdf(5, df) - chi2.cdf(3, df)
 print(f"자유도가 4인 카이제곱분포가 (3 ≤ 𝑋 ≤ 5)일 확률: {pro:.3f}")
 ```
 
+### 3. 자유도가 4인 카이제곱분포에서 크기가 1000인 표본을 뽑은 후, 히스토그램을 그려보세요.
+
+```{python}
+from scipy.stats import chi2
+import seaborn as sns
+df = 4
+sample = chi2.rvs(df, size=1000, random_state=2024)
+sns.histplot(data=sample)
+
+```
+
+### 4.자유도가 4인 카이제곱분포를 따르는 확률변수에서 나올 수 있는 값 중 상위 5%에 해당하는 값은 얼마인지 계산해보세요.
+
+```{python}
+
+df = 4
+
+value = chi2.ppf(0.95, df)
+
+# 결과 출력
+print(f"자유도가 4인 카이제곱분포에서 상위 5%에 해당하는 값: {value:.3f}")
+```
+
+### 5.3번에서 뽑힌 표본값들 중 상위 5%에 위치한 표본의 값은 얼마인가요?
+
+```{python}
+import numpy as np
+df = 4
+
+sample = chi2.rvs(df, size=1000, random_state=2024)
+percentile_value = np.percentile(sample, 95)
+print(f"3번에서 뽑은 표본값들 중 상위 5%: {percentile_value:.3f}")
+```
+
+### 6. 평균이 3, 표준편차가 2인 정규분포를 따르는 확률변수에서 크기가 20인 표본, 𝑥1, ..., 𝑥20,을 뽑은 후 표본분산을 계산한 것을 𝑠21 이라 생각해보죠. 다음을 수행해보세요!
+```{python}
+from scipy.stats import norm
+X = norm.rvs(3, 2, 20)
+print(f"평균이3, 표준편차가2, 크기가 20인 확률변수: {X}")
+s2 = np.var(X, ddof=1)
+print(f"표본분산:{s2:}")
+```
+
+```{python}
+print("같은 방법으로 500개의 𝑠2 들, 𝑠21, 𝑠22, ..., 𝑠2 500 발생시킵니다.")
+size = 20 
+num_samples = 500  
+
+S2_values = []
+
+# 각 표본에 대해 분산 계산
+for _ in range(num_samples):
+    Y = norm.rvs(3, 2, size=size)  
+    S2 = np.var(Y, ddof=1)  
+    S2_values.append(S2)
+
+# 첫 번째 표본의 표본 분산 예시 출력
+print(f"500개의 표본분산 s2: {S2_values[0]:.3f}")
+
+```
+
+```{python}
+import matplotlib.pyplot as plt
+
+print("발생한 500개의 𝑠2 들 각각에 4.75를 곱하고, 그것들의 히스토그램을 그려보세요. (히스토그램 을 그릴 때 probability = TRUE 옵션을 사용해서 그릴 것)")
+s2value_475 = np.array(S2_values) * 4.75
+sns.histplot(s2value_475, bins=30, stat="density")
+
+print("위에서 그린 히스토그램에 자유도가 19인 카이제곱분포 확률밀도함수를 겹쳐그려보세요.")
+
+from scipy.stats import chi2
+x = np.linspace(min(s2value_475), max(s2value_475), 1000)
+chi2_pdf=chi2.pdf(x,df=19)
+plt.plot(x, chi2_pdf, color= 'red')
+
+```
