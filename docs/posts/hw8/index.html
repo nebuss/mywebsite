@@ -20,10 +20,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -66,6 +100,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -114,7 +151,23 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">문제1. 데이터를 로드하고, 로지스틱 회귀모델을 적합하고, 회귀 표를 작성하세요.</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -122,23 +175,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#문제1.-데이터를-로드하고-로지스틱-회귀모델을-적합하고-회귀-표를-작성하세요." id="toc-문제1.-데이터를-로드하고-로지스틱-회귀모델을-적합하고-회귀-표를-작성하세요." class="nav-link active" data-scroll-target="#문제1.-데이터를-로드하고-로지스틱-회귀모델을-적합하고-회귀-표를-작성하세요.">문제1. 데이터를 로드하고, 로지스틱 회귀모델을 적합하고, 회귀 표를 작성하세요.</a></li>
-  <li><a href="#문제2.-해당-모델은-통계적으로-유의한가요-그-이유를-검정통계량를-사용해서-설명하시오." id="toc-문제2.-해당-모델은-통계적으로-유의한가요-그-이유를-검정통계량를-사용해서-설명하시오." class="nav-link" data-scroll-target="#문제2.-해당-모델은-통계적으로-유의한가요-그-이유를-검정통계량를-사용해서-설명하시오.">문제2. 해당 모델은 통계적으로 유의한가요? 그 이유를 검정통계량를 사용해서 설명하시오.</a></li>
+  <li><a href="#문제2.-해당-모델은-통계적으로-유의한가요-그-이유를-검정통계량를-사용해서-설명하시오." id="toc-문제2.-해당-모델은-통계적으로-유의한가요-그-이유를-검정통계량를-사용해서-설명하시오." class="nav-link active" data-scroll-target="#문제2.-해당-모델은-통계적으로-유의한가요-그-이유를-검정통계량를-사용해서-설명하시오.">문제2. 해당 모델은 통계적으로 유의한가요? 그 이유를 검정통계량를 사용해서 설명하시오.</a></li>
   <li><a href="#문제3.-유의수준이-0.2를-기준으로-통계적으로-유의한-변수는-몇개이며-어느-변수-인가요" id="toc-문제3.-유의수준이-0.2를-기준으로-통계적으로-유의한-변수는-몇개이며-어느-변수-인가요" class="nav-link" data-scroll-target="#문제3.-유의수준이-0.2를-기준으로-통계적으로-유의한-변수는-몇개이며-어느-변수-인가요">문제3. 유의수준이 0.2를 기준으로 통계적으로 유의한 변수는 몇개이며, 어느 변수 인가요?</a></li>
   <li><a href="#문제4.-다음-환자에-대한-오즈는-얼마인가요" id="toc-문제4.-다음-환자에-대한-오즈는-얼마인가요" class="nav-link" data-scroll-target="#문제4.-다음-환자에-대한-오즈는-얼마인가요">문제4. 다음 환자에 대한 오즈는 얼마인가요?</a></li>
-  <li><a href="#cell-골수의-세포성-65" id="toc-cell-골수의-세포성-65" class="nav-link" data-scroll-target="#cell-골수의-세포성-65">CELL (골수의 세포성): 65%</a></li>
-  <li><a href="#smear-골수편의-백혈구-비율-45" id="toc-smear-골수편의-백혈구-비율-45" class="nav-link" data-scroll-target="#smear-골수편의-백혈구-비율-45">SMEAR (골수편의 백혈구 비율): 45%</a></li>
-  <li><a href="#infil-골수의-백혈병-세포-침투-비율-55" id="toc-infil-골수의-백혈병-세포-침투-비율-55" class="nav-link" data-scroll-target="#infil-골수의-백혈병-세포-침투-비율-55">INFIL (골수의 백혈병 세포 침투 비율): 55%</a></li>
-  <li><a href="#li-골수-백혈병-세포의-라벨링-인덱스-1.2" id="toc-li-골수-백혈병-세포의-라벨링-인덱스-1.2" class="nav-link" data-scroll-target="#li-골수-백혈병-세포의-라벨링-인덱스-1.2">LI (골수 백혈병 세포의 라벨링 인덱스): 1.2</a></li>
-  <li><a href="#blast-말초혈액의-백혈병-세포-수-1.1세포μl" id="toc-blast-말초혈액의-백혈병-세포-수-1.1세포μl" class="nav-link" data-scroll-target="#blast-말초혈액의-백혈병-세포-수-1.1세포μl">BLAST (말초혈액의 백혈병 세포 수): 1.1세포/μL</a></li>
-  <li><a href="#temp-치료-시작-전-최고-체온-0.9" id="toc-temp-치료-시작-전-최고-체온-0.9" class="nav-link" data-scroll-target="#temp-치료-시작-전-최고-체온-0.9">TEMP (치료 시작 전 최고 체온): 0.9</a></li>
   <li><a href="#문제-5.-위-환자의-혈액에서-백혈병-세포가-관측되지-않은-확률은-얼마인가요" id="toc-문제-5.-위-환자의-혈액에서-백혈병-세포가-관측되지-않은-확률은-얼마인가요" class="nav-link" data-scroll-target="#문제-5.-위-환자의-혈액에서-백혈병-세포가-관측되지-않은-확률은-얼마인가요">문제 5. 위 환자의 혈액에서 백혈병 세포가 관측되지 않은 확률은 얼마인가요?</a></li>
   <li><a href="#문제-6.-temp-변수의-계수는-얼마이며-해당-계수를-사용해서-temp-변수가-백혈병-치료에-대한-영향을-설명하시오." id="toc-문제-6.-temp-변수의-계수는-얼마이며-해당-계수를-사용해서-temp-변수가-백혈병-치료에-대한-영향을-설명하시오." class="nav-link" data-scroll-target="#문제-6.-temp-변수의-계수는-얼마이며-해당-계수를-사용해서-temp-변수가-백혈병-치료에-대한-영향을-설명하시오.">문제 6. TEMP 변수의 계수는 얼마이며, 해당 계수를 사용해서 TEMP 변수가 백혈병 치료에 대한 영향을 설명하시오.</a></li>
   <li><a href="#문제-7.-cell-변수의-99-오즈비에-대한-신뢰구간을-구하시오." id="toc-문제-7.-cell-변수의-99-오즈비에-대한-신뢰구간을-구하시오." class="nav-link" data-scroll-target="#문제-7.-cell-변수의-99-오즈비에-대한-신뢰구간을-구하시오.">문제 7. CELL 변수의 99% 오즈비에 대한 신뢰구간을 구하시오.</a></li>
   <li><a href="#문제-8.-주어진-데이터에-대하여-로지스틱-회귀-모델의-예측-확률을-구한-후-50-이상인-경우-1로-처리하여-혼동-행렬를-구하시오." id="toc-문제-8.-주어진-데이터에-대하여-로지스틱-회귀-모델의-예측-확률을-구한-후-50-이상인-경우-1로-처리하여-혼동-행렬를-구하시오." class="nav-link" data-scroll-target="#문제-8.-주어진-데이터에-대하여-로지스틱-회귀-모델의-예측-확률을-구한-후-50-이상인-경우-1로-처리하여-혼동-행렬를-구하시오.">문제 8. 주어진 데이터에 대하여 로지스틱 회귀 모델의 예측 확률을 구한 후, 50% 이상인 경우 1로 처리하여, 혼동 행렬를 구하시오.</a></li>
-  <li><a href="#시각화" id="toc-시각화" class="nav-link" data-scroll-target="#시각화">시각화</a></li>
-  <li><a href="#혼동행렬-데이터" id="toc-혼동행렬-데이터" class="nav-link" data-scroll-target="#혼동행렬-데이터">혼동행렬 데이터</a></li>
-  <li><a href="#혼동행렬-시각화" id="toc-혼동행렬-시각화" class="nav-link" data-scroll-target="#혼동행렬-시각화">혼동행렬 시각화</a></li>
   <li><a href="#문제-9.-해당-모델의-accuracy는-얼마인가요" id="toc-문제-9.-해당-모델의-accuracy는-얼마인가요" class="nav-link" data-scroll-target="#문제-9.-해당-모델의-accuracy는-얼마인가요">문제 9. 해당 모델의 Accuracy는 얼마인가요?</a></li>
   <li><a href="#문제-10.-해당-모델의-f1-score를-구하세요." id="toc-문제-10.-해당-모델의-f1-score를-구하세요." class="nav-link" data-scroll-target="#문제-10.-해당-모델의-f1-score를-구하세요.">문제 10. 해당 모델의 F1 Score를 구하세요.</a></li>
   </ul>
@@ -150,91 +193,337 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>import numpy as np import pandas as pd import statsmodels.api as sm</p>
-<p>data= pd.read_table(‘C:/Users/USER/Documents/LS빅데이터스쿨/LSbigdata-project1/data/leukemia_remission.txt’, delimiter=’) print(data.head()) # 데이터 확인</p>
-<p>#종속변수: 백혈병 세포 관측 불가 여부 (REMISS), 1이면 관측 안됨을 의미 # 독립변수: # 골수의 세포성 (CELL) # 골수편의 백혈구 비율 (SMEAR) # 골수의 백혈병 세포 침투 비율 (INFIL) # 골수 백혈병 세포의 라벨링 인덱스 (LI) # 말초혈액의 백혈병 세포 수 (BLAST) # 치료 시작 전 최고 체온 (TEMP)</p>
-<section id="문제1.-데이터를-로드하고-로지스틱-회귀모델을-적합하고-회귀-표를-작성하세요." class="level1">
-<h1>문제1. 데이터를 로드하고, 로지스틱 회귀모델을 적합하고, 회귀 표를 작성하세요.</h1>
-<p>X = data[[‘CELL’, ‘SMEAR’, ‘INFIL’, ‘LI’, ‘BLAST’, ‘TEMP’]] # Independent variables y = data[‘REMISS’]</p>
-<p>X = sm.add_constant(X)</p>
-<p>logit_model = sm.Logit(y, X) result = logit_model.fit()</p>
-<p>logit_summary = result.summary() logit_summary</p>
+
+<div id="c5006ee4" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>  pd.read_table(<span class="st">'C:/Users/USER/Documents/LS빅데이터스쿨/LSbigdata-project1/data/leukemia_remission.txt'</span>, delimiter<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.head())  <span class="co"># 데이터 확인</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#종속변수: 백혈병 세포 관측 불가 여부 (REMISS), 1이면 관측 안됨을 의미</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 독립변수:</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 골수의 세포성 (CELL)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 골수편의 백혈구 비율 (SMEAR)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 골수의 백혈병 세포 침투 비율 (INFIL)</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 골수 백혈병 세포의 라벨링 인덱스 (LI)</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 말초혈액의 백혈병 세포 수 (BLAST)</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 치료 시작 전 최고 체온 (TEMP)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   REMISS  CELL  SMEAR  INFIL   LI  BLAST  TEMP
+0       1   0.8   0.83   0.66  1.9   1.10  1.00
+1       1   0.9   0.36   0.32  1.4   0.74  0.99
+2       0   0.8   0.88   0.70  0.8   0.18  0.98
+3       0   1.0   0.87   0.87  0.7   1.05  0.99
+4       1   0.9   0.75   0.68  1.3   0.52  0.98</code></pre>
+</div>
+</div>
+<div id="39cb074e" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> data[[<span class="st">'CELL'</span>, <span class="st">'SMEAR'</span>, <span class="st">'INFIL'</span>, <span class="st">'LI'</span>, <span class="st">'BLAST'</span>, <span class="st">'TEMP'</span>]]  <span class="co"># Independent variables</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> data[<span class="st">'REMISS'</span>] </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> sm.add_constant(X)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>logit_model <span class="op">=</span> sm.Logit(y, X)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> logit_model.fit()</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>logit_summary <span class="op">=</span> result.summary()</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>logit_summary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Optimization terminated successfully.
+         Current function value: 0.399886
+         Iterations 10</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Logit Regression Results</caption>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Dep. Variable:</td>
+<td>REMISS</td>
+<td data-quarto-table-cell-role="th">No. Observations:</td>
+<td>27</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Model:</td>
+<td>Logit</td>
+<td data-quarto-table-cell-role="th">Df Residuals:</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Method:</td>
+<td>MLE</td>
+<td data-quarto-table-cell-role="th">Df Model:</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Date:</td>
+<td>Tue, 10 Sep 2024</td>
+<td data-quarto-table-cell-role="th">Pseudo R-squ.:</td>
+<td>0.3718</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Time:</td>
+<td>10:21:53</td>
+<td data-quarto-table-cell-role="th">Log-Likelihood:</td>
+<td>-10.797</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">converged:</td>
+<td>True</td>
+<td data-quarto-table-cell-role="th">LL-Null:</td>
+<td>-17.186</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Covariance Type:</td>
+<td>nonrobust</td>
+<td data-quarto-table-cell-role="th">LLR p-value:</td>
+<td>0.04670</td>
+</tr>
+</tbody>
+</table>
+
+
+<table class="simpletable caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td></td>
+<td data-quarto-table-cell-role="th">coef</td>
+<td data-quarto-table-cell-role="th">std err</td>
+<td data-quarto-table-cell-role="th">z</td>
+<td data-quarto-table-cell-role="th">P&gt;|z|</td>
+<td data-quarto-table-cell-role="th">[0.025</td>
+<td data-quarto-table-cell-role="th">0.975]</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">const</td>
+<td>64.2581</td>
+<td>74.965</td>
+<td>0.857</td>
+<td>0.391</td>
+<td>-82.670</td>
+<td>211.187</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">CELL</td>
+<td>30.8301</td>
+<td>52.135</td>
+<td>0.591</td>
+<td>0.554</td>
+<td>-71.353</td>
+<td>133.013</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">SMEAR</td>
+<td>24.6863</td>
+<td>61.526</td>
+<td>0.401</td>
+<td>0.688</td>
+<td>-95.903</td>
+<td>145.275</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">INFIL</td>
+<td>-24.9745</td>
+<td>65.281</td>
+<td>-0.383</td>
+<td>0.702</td>
+<td>-152.923</td>
+<td>102.974</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">LI</td>
+<td>4.3605</td>
+<td>2.658</td>
+<td>1.641</td>
+<td>0.101</td>
+<td>-0.849</td>
+<td>9.570</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">BLAST</td>
+<td>-0.0115</td>
+<td>2.266</td>
+<td>-0.005</td>
+<td>0.996</td>
+<td>-4.453</td>
+<td>4.430</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">TEMP</td>
+<td>-100.1734</td>
+<td>77.753</td>
+<td>-1.288</td>
+<td>0.198</td>
+<td>-252.567</td>
+<td>52.220</td>
+</tr>
+</tbody>
+</table>
+<br><br>Possibly complete quasi-separation: A fraction 0.11 of observations can be<br>perfectly predicted. This might indicate that there is complete<br>quasi-separation. In this case some parameters will not be identified.
+</div>
+</div>
+<section id="문제2.-해당-모델은-통계적으로-유의한가요-그-이유를-검정통계량를-사용해서-설명하시오." class="level3">
+<h3 class="anchored" data-anchor-id="문제2.-해당-모델은-통계적으로-유의한가요-그-이유를-검정통계량를-사용해서-설명하시오.">문제2. 해당 모델은 통계적으로 유의한가요? 그 이유를 검정통계량를 사용해서 설명하시오.</h3>
+<div id="217c31c1" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>llr_pvalue <span class="op">=</span> result.llr_pvalue <span class="co">#우도비 검정의 p-value : 0.04670</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ll_null <span class="op">=</span> result.llnull  <span class="co">#  독립 변수 없이 상수항(intercept)만을 포함한 귀무모형의 로그 우도반환: -17.1858</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ll_model <span class="op">=</span> result.llf  <span class="co"># 독립 변수를 포함한 모델로, 독립 변수들이 종속 변수에 영향을 미친다고 가정: (-10.79692</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>lr_stat <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> (ll_model <span class="op">-</span> ll_null) <span class="co"># LR statistic: 12.7779  클수록 독립 변수를 추가한 모델이 종속 변수를 더 잘 설명한다</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>llr_pvalue, lr_stat <span class="co">#  p-value가 0.05보다 작으므로, 95% 신뢰수준에서 귀무가설을 기각</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> chi2</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># −2(ℓ(𝛽)̂ (0) − ℓ(𝛽)̂ )  =  -2*(-17.186+10.797)  = 12.779</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">-</span> chi2.cdf(<span class="fl">12.779</span>, df<span class="op">=</span><span class="dv">6</span>)  <span class="co"># 0.0467</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>np.float64(0.0466828104726148)</code></pre>
+</div>
+</div>
 </section>
-<section id="문제2.-해당-모델은-통계적으로-유의한가요-그-이유를-검정통계량를-사용해서-설명하시오." class="level1">
-<h1>문제2. 해당 모델은 통계적으로 유의한가요? 그 이유를 검정통계량를 사용해서 설명하시오.</h1>
-<p>llr_pvalue = result.llr_pvalue #우도비 검정의 p-value : 0.04670 ll_null = result.llnull # 독립 변수 없이 상수항(intercept)만을 포함한 귀무모형의 로그 우도반환: -17.1858 ll_model = result.llf # 독립 변수를 포함한 모델로, 독립 변수들이 종속 변수에 영향을 미친다고 가정: (-10.79692 lr_stat = 2 * (ll_model - ll_null) # LR statistic: 12.7779 클수록 독립 변수를 추가한 모델이 종속 변수를 더 잘 설명한다</p>
-<p>llr_pvalue, lr_stat # p-value가 0.05보다 작으므로, 95% 신뢰수준에서 귀무가설을 기각 from scipy.stats import chi2 # −2(ℓ(𝛽)̂ (0) − ℓ(𝛽)̂ ) = -2*(-17.186+10.797) = 12.779 1 - chi2.cdf(12.779, df=6) # 0.0467</p>
+<section id="문제3.-유의수준이-0.2를-기준으로-통계적으로-유의한-변수는-몇개이며-어느-변수-인가요" class="level3">
+<h3 class="anchored" data-anchor-id="문제3.-유의수준이-0.2를-기준으로-통계적으로-유의한-변수는-몇개이며-어느-변수-인가요">문제3. 유의수준이 0.2를 기준으로 통계적으로 유의한 변수는 몇개이며, 어느 변수 인가요?</h3>
+<div id="ee8c5b57" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>p_values <span class="op">=</span> result.pvalues</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>p_values[p_values <span class="op">&lt;</span> <span class="fl">0.2</span>]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 2개.  LI ,  TEMP</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>LI      0.100899
+TEMP    0.197623
+dtype: float64</code></pre>
+</div>
+</div>
 </section>
-<section id="문제3.-유의수준이-0.2를-기준으로-통계적으로-유의한-변수는-몇개이며-어느-변수-인가요" class="level1">
-<h1>문제3. 유의수준이 0.2를 기준으로 통계적으로 유의한 변수는 몇개이며, 어느 변수 인가요?</h1>
-<p>p_values = result.pvalues p_values[p_values &lt; 0.2] # 2개. LI , TEMP</p>
+<section id="문제4.-다음-환자에-대한-오즈는-얼마인가요" class="level3">
+<h3 class="anchored" data-anchor-id="문제4.-다음-환자에-대한-오즈는-얼마인가요">문제4. 다음 환자에 대한 오즈는 얼마인가요?</h3>
+<div id="a2543f37" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CELL (골수의 세포성): 65%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># SMEAR (골수편의 백혈구 비율): 45%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># INFIL (골수의 백혈병 세포 침투 비율): 55%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># LI (골수 백혈병 세포의 라벨링 인덱스): 1.2</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># BLAST (말초혈액의 백혈병 세포 수): 1.1세포/μL</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># TEMP (치료 시작 전 최고 체온): 0.9</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>coefficients <span class="op">=</span> result.params</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>patient_data <span class="op">=</span> {</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'const'</span>: <span class="dv">1</span>,  <span class="co"># Intercept</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'CELL'</span>: <span class="fl">0.65</span>,  <span class="co"># 65%</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'SMEAR'</span>: <span class="fl">0.45</span>,  <span class="co"># 45%</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'INFIL'</span>: <span class="fl">0.55</span>,  <span class="co"># 55%</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'LI'</span>: <span class="fl">1.2</span>,  <span class="co"># LI value</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'BLAST'</span>: <span class="fl">1.1</span>,  <span class="co"># BLAST value in cells/μL</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'TEMP'</span>: <span class="fl">0.9</span>  <span class="co"># TEMP value (already scaled)</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>log_odds <span class="op">=</span> <span class="bu">sum</span>(coefficients[var] <span class="op">*</span> patient_data[var] <span class="cf">for</span> var <span class="kw">in</span> patient_data)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>odds <span class="op">=</span> np.exp(log_odds)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>log_odds, odds <span class="co"># -3.2656, 0.03817</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>(np.float64(-3.265694097999827), np.float64(0.03817043186641792))</code></pre>
+</div>
+</div>
 </section>
-<section id="문제4.-다음-환자에-대한-오즈는-얼마인가요" class="level1">
-<h1>문제4. 다음 환자에 대한 오즈는 얼마인가요?</h1>
+<section id="문제-5.-위-환자의-혈액에서-백혈병-세포가-관측되지-않은-확률은-얼마인가요" class="level3">
+<h3 class="anchored" data-anchor-id="문제-5.-위-환자의-혈액에서-백혈병-세포가-관측되지-않은-확률은-얼마인가요">문제 5. 위 환자의 혈액에서 백혈병 세포가 관측되지 않은 확률은 얼마인가요?</h3>
+<div id="672ea8b8" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>prob <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> np.exp(<span class="op">-</span>log_odds))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>prob <span class="co"># 0.036767</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>np.float64(0.03676701887742584)</code></pre>
+</div>
+</div>
 </section>
-<section id="cell-골수의-세포성-65" class="level1">
-<h1>CELL (골수의 세포성): 65%</h1>
+<section id="문제-6.-temp-변수의-계수는-얼마이며-해당-계수를-사용해서-temp-변수가-백혈병-치료에-대한-영향을-설명하시오." class="level3">
+<h3 class="anchored" data-anchor-id="문제-6.-temp-변수의-계수는-얼마이며-해당-계수를-사용해서-temp-변수가-백혈병-치료에-대한-영향을-설명하시오.">문제 6. TEMP 변수의 계수는 얼마이며, 해당 계수를 사용해서 TEMP 변수가 백혈병 치료에 대한 영향을 설명하시오.</h3>
+<div id="f82a3d7b" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>temp_coef <span class="op">=</span> coefficients[<span class="st">'TEMP'</span>] <span class="co"># -100.17340</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>temp_odds_ratio <span class="op">=</span> np.exp(temp_coef)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>temp_odds_ratio  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>np.float64(3.1278443426406826e-44)</code></pre>
+</div>
+</div>
+<p>3.13e-44 - &gt; 0에 가까운 값입니다. 이는 체온이 1단위 상승할 때 백혈병 세포가 관측되지 않을 확률이 (오즈비만큼 변동)거의 없어지는 것을 의미 -&gt; 온도가 높아질수록 백혈병 세포가 관측될 확률 높아짐.</p>
 </section>
-<section id="smear-골수편의-백혈구-비율-45" class="level1">
-<h1>SMEAR (골수편의 백혈구 비율): 45%</h1>
+<section id="문제-7.-cell-변수의-99-오즈비에-대한-신뢰구간을-구하시오." class="level3">
+<h3 class="anchored" data-anchor-id="문제-7.-cell-변수의-99-오즈비에-대한-신뢰구간을-구하시오.">문제 7. CELL 변수의 99% 오즈비에 대한 신뢰구간을 구하시오.</h3>
+<div id="e7ea714b" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>cell_coef <span class="op">=</span> coefficients[<span class="st">'CELL'</span>]</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>cell_se <span class="op">=</span> result.bse[<span class="st">'CELL'</span>]  <span class="co"># bse는 **표준 오차(Standard Errors, SE)가 저장된 속성</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>z_value <span class="op">=</span> <span class="fl">2.576</span> <span class="co"># 99% 신뢰구간에서 z값</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>lower_log_odds <span class="op">=</span> cell_coef <span class="op">-</span> z_value <span class="op">*</span> cell_se</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>upper_log_odds <span class="op">=</span> cell_coef <span class="op">+</span> z_value <span class="op">*</span> cell_se</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>lower_odds_ratio <span class="op">=</span> np.exp(lower_log_odds)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>upper_odds_ratio <span class="op">=</span> np.exp(upper_log_odds)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>lower_odds_ratio, upper_odds_ratio <span class="co"># 0에 가까운수, 엄청 큰 수.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>(np.float64(1.1569618556690256e-45), np.float64(5.191962380123559e+71))</code></pre>
+</div>
+</div>
 </section>
-<section id="infil-골수의-백혈병-세포-침투-비율-55" class="level1">
-<h1>INFIL (골수의 백혈병 세포 침투 비율): 55%</h1>
+<section id="문제-8.-주어진-데이터에-대하여-로지스틱-회귀-모델의-예측-확률을-구한-후-50-이상인-경우-1로-처리하여-혼동-행렬를-구하시오." class="level3">
+<h3 class="anchored" data-anchor-id="문제-8.-주어진-데이터에-대하여-로지스틱-회귀-모델의-예측-확률을-구한-후-50-이상인-경우-1로-처리하여-혼동-행렬를-구하시오.">문제 8. 주어진 데이터에 대하여 로지스틱 회귀 모델의 예측 확률을 구한 후, 50% 이상인 경우 1로 처리하여, 혼동 행렬를 구하시오.</h3>
+<div id="2330cb46" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>predicted_probabilities <span class="op">=</span> result.predict(X)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>predicted_classes <span class="op">=</span> (predicted_probabilities <span class="op">&gt;=</span> <span class="fl">0.5</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>conf_matrix <span class="op">=</span> confusion_matrix(y, predicted_classes)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>conf_matrix  </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 시각화</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 혼동행렬 데이터</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>conf_matrix <span class="op">=</span> [[<span class="dv">15</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>]]</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 혼동행렬 시각화</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>sns.heatmap(conf_matrix, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">"d"</span>, cmap<span class="op">=</span><span class="st">"Blues"</span>, cbar<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Confusion Matrix"</span>)</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Predicted Label"</span>)</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"True Label"</span>)</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/cell-10-output-1.png" width="506" height="376" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="li-골수-백혈병-세포의-라벨링-인덱스-1.2" class="level1">
-<h1>LI (골수 백혈병 세포의 라벨링 인덱스): 1.2</h1>
+<section id="문제-9.-해당-모델의-accuracy는-얼마인가요" class="level3">
+<h3 class="anchored" data-anchor-id="문제-9.-해당-모델의-accuracy는-얼마인가요">문제 9. 해당 모델의 Accuracy는 얼마인가요?</h3>
+<div id="d23cf9b1" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>conf_matrix <span class="op">=</span> np.array([[<span class="dv">15</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>]])</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 정확도 계산</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>accuracy <span class="op">=</span> (conf_matrix[<span class="dv">0</span>, <span class="dv">0</span>] <span class="op">+</span> conf_matrix[<span class="dv">1</span>, <span class="dv">1</span>]) <span class="op">/</span> conf_matrix.<span class="bu">sum</span>()</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>accuracy <span class="co"># 정확도: 약 74.07%</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>np.float64(0.7407407407407407)</code></pre>
+</div>
+</div>
 </section>
-<section id="blast-말초혈액의-백혈병-세포-수-1.1세포μl" class="level1">
-<h1>BLAST (말초혈액의 백혈병 세포 수): 1.1세포/μL</h1>
-</section>
-<section id="temp-치료-시작-전-최고-체온-0.9" class="level1">
-<h1>TEMP (치료 시작 전 최고 체온): 0.9</h1>
-<p>coefficients = result.params patient_data = { ‘const’: 1, # Intercept ‘CELL’: 0.65, # 65% ‘SMEAR’: 0.45, # 45% ‘INFIL’: 0.55, # 55% ‘LI’: 1.2, # LI value ‘BLAST’: 1.1, # BLAST value in cells/μL ‘TEMP’: 0.9 # TEMP value (already scaled) }</p>
-<p>log_odds = sum(coefficients[var] * patient_data[var] for var in patient_data)</p>
-<p>odds = np.exp(log_odds)</p>
-<p>log_odds, odds # -3.2656, 0.03817</p>
-</section>
-<section id="문제-5.-위-환자의-혈액에서-백혈병-세포가-관측되지-않은-확률은-얼마인가요" class="level1">
-<h1>문제 5. 위 환자의 혈액에서 백혈병 세포가 관측되지 않은 확률은 얼마인가요?</h1>
-<p>prob = 1 / (1 + np.exp(-log_odds)) prob # 0.036767</p>
-</section>
-<section id="문제-6.-temp-변수의-계수는-얼마이며-해당-계수를-사용해서-temp-변수가-백혈병-치료에-대한-영향을-설명하시오." class="level1">
-<h1>문제 6. TEMP 변수의 계수는 얼마이며, 해당 계수를 사용해서 TEMP 변수가 백혈병 치료에 대한 영향을 설명하시오.</h1>
-<p>temp_coef = coefficients[‘TEMP’] # -100.17340</p>
-<p>temp_odds_ratio = np.exp(temp_coef) temp_odds_ratio # 3.13e-44 - &gt; 0에 가까운 값입니다. 이는 체온이 1단위 상승할 때 백혈병 세포가 관측되지 않을 확률이 (오즈비만큼 변동)거의 없어지는 것을 의미 -&gt; 온도가 높아질수록 백혈병 세포가 관측될 확률 높아짐.</p>
-</section>
-<section id="문제-7.-cell-변수의-99-오즈비에-대한-신뢰구간을-구하시오." class="level1">
-<h1>문제 7. CELL 변수의 99% 오즈비에 대한 신뢰구간을 구하시오.</h1>
-<p>cell_coef = coefficients[‘CELL’] cell_se = result.bse[‘CELL’] # bse는 **표준 오차(Standard Errors, SE)가 저장된 속성</p>
-<p>z_value = 2.576 # 99% 신뢰구간에서 z값</p>
-<p>lower_log_odds = cell_coef - z_value * cell_se upper_log_odds = cell_coef + z_value * cell_se</p>
-<p>lower_odds_ratio = np.exp(lower_log_odds) upper_odds_ratio = np.exp(upper_log_odds)</p>
-<p>lower_odds_ratio, upper_odds_ratio # 0에 가까운수, 엄청 큰 수.</p>
-</section>
-<section id="문제-8.-주어진-데이터에-대하여-로지스틱-회귀-모델의-예측-확률을-구한-후-50-이상인-경우-1로-처리하여-혼동-행렬를-구하시오." class="level1">
-<h1>문제 8. 주어진 데이터에 대하여 로지스틱 회귀 모델의 예측 확률을 구한 후, 50% 이상인 경우 1로 처리하여, 혼동 행렬를 구하시오.</h1>
-<p>from sklearn.metrics import confusion_matrix predicted_probabilities = result.predict(X) predicted_classes = (predicted_probabilities &gt;= 0.5).astype(int) conf_matrix = confusion_matrix(y, predicted_classes) conf_matrix</p>
-</section>
-<section id="시각화" class="level1">
-<h1>시각화</h1>
-<p>import matplotlib.pyplot as plt import seaborn as sns</p>
-</section>
-<section id="혼동행렬-데이터" class="level1">
-<h1>혼동행렬 데이터</h1>
-<p>conf_matrix = [[15, 3], [4, 5]]</p>
-</section>
-<section id="혼동행렬-시각화" class="level1">
-<h1>혼동행렬 시각화</h1>
-<p>plt.figure(figsize=(6, 4)) sns.heatmap(conf_matrix, annot=True, fmt=“d”, cmap=“Blues”, cbar=False) plt.title(“Confusion Matrix”) plt.xlabel(“Predicted Label”) plt.ylabel(“True Label”) plt.show()</p>
-</section>
-<section id="문제-9.-해당-모델의-accuracy는-얼마인가요" class="level1">
-<h1>문제 9. 해당 모델의 Accuracy는 얼마인가요?</h1>
-<p>accuracy = (conf_matrix[0, 0] + conf_matrix[1, 1]) / conf_matrix.sum() accuracy # 정확도: 약 74.07%</p>
-</section>
-<section id="문제-10.-해당-모델의-f1-score를-구하세요." class="level1">
-<h1>문제 10. 해당 모델의 F1 Score를 구하세요.</h1>
-<p>from sklearn.metrics import f1_score</p>
-<p>f1 = f1_score(y, predicted_classes) f1 # 0.58823</p>
+<section id="문제-10.-해당-모델의-f1-score를-구하세요." class="level3">
+<h3 class="anchored" data-anchor-id="문제-10.-해당-모델의-f1-score를-구하세요.">문제 10. 해당 모델의 F1 Score를 구하세요.</h3>
+<div id="8f712467" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> f1_score</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>f1 <span class="op">=</span> f1_score(y, predicted_classes)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>f1  <span class="co"># 0.58823</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>np.float64(0.5882352941176471)</code></pre>
+</div>
+</div>
 
 
 </section>
