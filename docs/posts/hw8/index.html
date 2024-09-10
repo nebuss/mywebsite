@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>글 목록 – portfolio</title>
+<title>index – portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +66,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-subtitle',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">portfolio</span>
     </a>
   </div>
@@ -149,15 +89,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts/index.html"> 
+    <a class="nav-link" href="../../posts/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -178,184 +118,128 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(9)</span></div><div class="category" data-category="bigdata">bigdata <span class="quarto-category-count">(7)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#문제1.-데이터를-로드하고-로지스틱-회귀모델을-적합하고-회귀-표를-작성하세요." id="toc-문제1.-데이터를-로드하고-로지스틱-회귀모델을-적합하고-회귀-표를-작성하세요." class="nav-link active" data-scroll-target="#문제1.-데이터를-로드하고-로지스틱-회귀모델을-적합하고-회귀-표를-작성하세요.">문제1. 데이터를 로드하고, 로지스틱 회귀모델을 적합하고, 회귀 표를 작성하세요.</a></li>
+  <li><a href="#문제2.-해당-모델은-통계적으로-유의한가요-그-이유를-검정통계량를-사용해서-설명하시오." id="toc-문제2.-해당-모델은-통계적으로-유의한가요-그-이유를-검정통계량를-사용해서-설명하시오." class="nav-link" data-scroll-target="#문제2.-해당-모델은-통계적으로-유의한가요-그-이유를-검정통계량를-사용해서-설명하시오.">문제2. 해당 모델은 통계적으로 유의한가요? 그 이유를 검정통계량를 사용해서 설명하시오.</a></li>
+  <li><a href="#문제3.-유의수준이-0.2를-기준으로-통계적으로-유의한-변수는-몇개이며-어느-변수-인가요" id="toc-문제3.-유의수준이-0.2를-기준으로-통계적으로-유의한-변수는-몇개이며-어느-변수-인가요" class="nav-link" data-scroll-target="#문제3.-유의수준이-0.2를-기준으로-통계적으로-유의한-변수는-몇개이며-어느-변수-인가요">문제3. 유의수준이 0.2를 기준으로 통계적으로 유의한 변수는 몇개이며, 어느 변수 인가요?</a></li>
+  <li><a href="#문제4.-다음-환자에-대한-오즈는-얼마인가요" id="toc-문제4.-다음-환자에-대한-오즈는-얼마인가요" class="nav-link" data-scroll-target="#문제4.-다음-환자에-대한-오즈는-얼마인가요">문제4. 다음 환자에 대한 오즈는 얼마인가요?</a></li>
+  <li><a href="#cell-골수의-세포성-65" id="toc-cell-골수의-세포성-65" class="nav-link" data-scroll-target="#cell-골수의-세포성-65">CELL (골수의 세포성): 65%</a></li>
+  <li><a href="#smear-골수편의-백혈구-비율-45" id="toc-smear-골수편의-백혈구-비율-45" class="nav-link" data-scroll-target="#smear-골수편의-백혈구-비율-45">SMEAR (골수편의 백혈구 비율): 45%</a></li>
+  <li><a href="#infil-골수의-백혈병-세포-침투-비율-55" id="toc-infil-골수의-백혈병-세포-침투-비율-55" class="nav-link" data-scroll-target="#infil-골수의-백혈병-세포-침투-비율-55">INFIL (골수의 백혈병 세포 침투 비율): 55%</a></li>
+  <li><a href="#li-골수-백혈병-세포의-라벨링-인덱스-1.2" id="toc-li-골수-백혈병-세포의-라벨링-인덱스-1.2" class="nav-link" data-scroll-target="#li-골수-백혈병-세포의-라벨링-인덱스-1.2">LI (골수 백혈병 세포의 라벨링 인덱스): 1.2</a></li>
+  <li><a href="#blast-말초혈액의-백혈병-세포-수-1.1세포μl" id="toc-blast-말초혈액의-백혈병-세포-수-1.1세포μl" class="nav-link" data-scroll-target="#blast-말초혈액의-백혈병-세포-수-1.1세포μl">BLAST (말초혈액의 백혈병 세포 수): 1.1세포/μL</a></li>
+  <li><a href="#temp-치료-시작-전-최고-체온-0.9" id="toc-temp-치료-시작-전-최고-체온-0.9" class="nav-link" data-scroll-target="#temp-치료-시작-전-최고-체온-0.9">TEMP (치료 시작 전 최고 체온): 0.9</a></li>
+  <li><a href="#문제-5.-위-환자의-혈액에서-백혈병-세포가-관측되지-않은-확률은-얼마인가요" id="toc-문제-5.-위-환자의-혈액에서-백혈병-세포가-관측되지-않은-확률은-얼마인가요" class="nav-link" data-scroll-target="#문제-5.-위-환자의-혈액에서-백혈병-세포가-관측되지-않은-확률은-얼마인가요">문제 5. 위 환자의 혈액에서 백혈병 세포가 관측되지 않은 확률은 얼마인가요?</a></li>
+  <li><a href="#문제-6.-temp-변수의-계수는-얼마이며-해당-계수를-사용해서-temp-변수가-백혈병-치료에-대한-영향을-설명하시오." id="toc-문제-6.-temp-변수의-계수는-얼마이며-해당-계수를-사용해서-temp-변수가-백혈병-치료에-대한-영향을-설명하시오." class="nav-link" data-scroll-target="#문제-6.-temp-변수의-계수는-얼마이며-해당-계수를-사용해서-temp-변수가-백혈병-치료에-대한-영향을-설명하시오.">문제 6. TEMP 변수의 계수는 얼마이며, 해당 계수를 사용해서 TEMP 변수가 백혈병 치료에 대한 영향을 설명하시오.</a></li>
+  <li><a href="#문제-7.-cell-변수의-99-오즈비에-대한-신뢰구간을-구하시오." id="toc-문제-7.-cell-변수의-99-오즈비에-대한-신뢰구간을-구하시오." class="nav-link" data-scroll-target="#문제-7.-cell-변수의-99-오즈비에-대한-신뢰구간을-구하시오.">문제 7. CELL 변수의 99% 오즈비에 대한 신뢰구간을 구하시오.</a></li>
+  <li><a href="#문제-8.-주어진-데이터에-대하여-로지스틱-회귀-모델의-예측-확률을-구한-후-50-이상인-경우-1로-처리하여-혼동-행렬를-구하시오." id="toc-문제-8.-주어진-데이터에-대하여-로지스틱-회귀-모델의-예측-확률을-구한-후-50-이상인-경우-1로-처리하여-혼동-행렬를-구하시오." class="nav-link" data-scroll-target="#문제-8.-주어진-데이터에-대하여-로지스틱-회귀-모델의-예측-확률을-구한-후-50-이상인-경우-1로-처리하여-혼동-행렬를-구하시오.">문제 8. 주어진 데이터에 대하여 로지스틱 회귀 모델의 예측 확률을 구한 후, 50% 이상인 경우 1로 처리하여, 혼동 행렬를 구하시오.</a></li>
+  <li><a href="#시각화" id="toc-시각화" class="nav-link" data-scroll-target="#시각화">시각화</a></li>
+  <li><a href="#혼동행렬-데이터" id="toc-혼동행렬-데이터" class="nav-link" data-scroll-target="#혼동행렬-데이터">혼동행렬 데이터</a></li>
+  <li><a href="#혼동행렬-시각화" id="toc-혼동행렬-시각화" class="nav-link" data-scroll-target="#혼동행렬-시각화">혼동행렬 시각화</a></li>
+  <li><a href="#문제-9.-해당-모델의-accuracy는-얼마인가요" id="toc-문제-9.-해당-모델의-accuracy는-얼마인가요" class="nav-link" data-scroll-target="#문제-9.-해당-모델의-accuracy는-얼마인가요">문제 9. 해당 모델의 Accuracy는 얼마인가요?</a></li>
+  <li><a href="#문제-10.-해당-모델의-f1-score를-구하세요." id="toc-문제-10.-해당-모델의-f1-score를-구하세요." class="nav-link" data-scroll-target="#문제-10.-해당-모델의-f1-score를-구하세요.">문제 10. 해당 모델의 F1 Score를 구하세요.</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">글 목록</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
+<p>import numpy as np import pandas as pd import statsmodels.api as sm</p>
+<p>data= pd.read_table(‘C:/Users/USER/Documents/LS빅데이터스쿨/LSbigdata-project1/data/leukemia_remission.txt’, delimiter=’) print(data.head()) # 데이터 확인</p>
+<p>#종속변수: 백혈병 세포 관측 불가 여부 (REMISS), 1이면 관측 안됨을 의미 # 독립변수: # 골수의 세포성 (CELL) # 골수편의 백혈구 비율 (SMEAR) # 골수의 백혈병 세포 침투 비율 (INFIL) # 골수 백혈병 세포의 라벨링 인덱스 (LI) # 말초혈액의 백혈병 세포 수 (BLAST) # 치료 시작 전 최고 체온 (TEMP)</p>
+<section id="문제1.-데이터를-로드하고-로지스틱-회귀모델을-적합하고-회귀-표를-작성하세요." class="level1">
+<h1>문제1. 데이터를 로드하고, 로지스틱 회귀모델을 적합하고, 회귀 표를 작성하세요.</h1>
+<p>X = data[[‘CELL’, ‘SMEAR’, ‘INFIL’, ‘LI’, ‘BLAST’, ‘TEMP’]] # Independent variables y = data[‘REMISS’]</p>
+<p>X = sm.add_constant(X)</p>
+<p>logit_model = sm.Logit(y, X) result = logit_model.fit()</p>
+<p>logit_summary = result.summary() logit_summary</p>
+</section>
+<section id="문제2.-해당-모델은-통계적으로-유의한가요-그-이유를-검정통계량를-사용해서-설명하시오." class="level1">
+<h1>문제2. 해당 모델은 통계적으로 유의한가요? 그 이유를 검정통계량를 사용해서 설명하시오.</h1>
+<p>llr_pvalue = result.llr_pvalue #우도비 검정의 p-value : 0.04670 ll_null = result.llnull # 독립 변수 없이 상수항(intercept)만을 포함한 귀무모형의 로그 우도반환: -17.1858 ll_model = result.llf # 독립 변수를 포함한 모델로, 독립 변수들이 종속 변수에 영향을 미친다고 가정: (-10.79692 lr_stat = 2 * (ll_model - ll_null) # LR statistic: 12.7779 클수록 독립 변수를 추가한 모델이 종속 변수를 더 잘 설명한다</p>
+<p>llr_pvalue, lr_stat # p-value가 0.05보다 작으므로, 95% 신뢰수준에서 귀무가설을 기각 from scipy.stats import chi2 # −2(ℓ(𝛽)̂ (0) − ℓ(𝛽)̂ ) = -2*(-17.186+10.797) = 12.779 1 - chi2.cdf(12.779, df=6) # 0.0467</p>
+</section>
+<section id="문제3.-유의수준이-0.2를-기준으로-통계적으로-유의한-변수는-몇개이며-어느-변수-인가요" class="level1">
+<h1>문제3. 유의수준이 0.2를 기준으로 통계적으로 유의한 변수는 몇개이며, 어느 변수 인가요?</h1>
+<p>p_values = result.pvalues p_values[p_values &lt; 0.2] # 2개. LI , TEMP</p>
+</section>
+<section id="문제4.-다음-환자에-대한-오즈는-얼마인가요" class="level1">
+<h1>문제4. 다음 환자에 대한 오즈는 얼마인가요?</h1>
+</section>
+<section id="cell-골수의-세포성-65" class="level1">
+<h1>CELL (골수의 세포성): 65%</h1>
+</section>
+<section id="smear-골수편의-백혈구-비율-45" class="level1">
+<h1>SMEAR (골수편의 백혈구 비율): 45%</h1>
+</section>
+<section id="infil-골수의-백혈병-세포-침투-비율-55" class="level1">
+<h1>INFIL (골수의 백혈병 세포 침투 비율): 55%</h1>
+</section>
+<section id="li-골수-백혈병-세포의-라벨링-인덱스-1.2" class="level1">
+<h1>LI (골수 백혈병 세포의 라벨링 인덱스): 1.2</h1>
+</section>
+<section id="blast-말초혈액의-백혈병-세포-수-1.1세포μl" class="level1">
+<h1>BLAST (말초혈액의 백혈병 세포 수): 1.1세포/μL</h1>
+</section>
+<section id="temp-치료-시작-전-최고-체온-0.9" class="level1">
+<h1>TEMP (치료 시작 전 최고 체온): 0.9</h1>
+<p>coefficients = result.params patient_data = { ‘const’: 1, # Intercept ‘CELL’: 0.65, # 65% ‘SMEAR’: 0.45, # 45% ‘INFIL’: 0.55, # 55% ‘LI’: 1.2, # LI value ‘BLAST’: 1.1, # BLAST value in cells/μL ‘TEMP’: 0.9 # TEMP value (already scaled) }</p>
+<p>log_odds = sum(coefficients[var] * patient_data[var] for var in patient_data)</p>
+<p>odds = np.exp(log_odds)</p>
+<p>log_odds, odds # -3.2656, 0.03817</p>
+</section>
+<section id="문제-5.-위-환자의-혈액에서-백혈병-세포가-관측되지-않은-확률은-얼마인가요" class="level1">
+<h1>문제 5. 위 환자의 혈액에서 백혈병 세포가 관측되지 않은 확률은 얼마인가요?</h1>
+<p>prob = 1 / (1 + np.exp(-log_odds)) prob # 0.036767</p>
+</section>
+<section id="문제-6.-temp-변수의-계수는-얼마이며-해당-계수를-사용해서-temp-변수가-백혈병-치료에-대한-영향을-설명하시오." class="level1">
+<h1>문제 6. TEMP 변수의 계수는 얼마이며, 해당 계수를 사용해서 TEMP 변수가 백혈병 치료에 대한 영향을 설명하시오.</h1>
+<p>temp_coef = coefficients[‘TEMP’] # -100.17340</p>
+<p>temp_odds_ratio = np.exp(temp_coef) temp_odds_ratio # 3.13e-44 - &gt; 0에 가까운 값입니다. 이는 체온이 1단위 상승할 때 백혈병 세포가 관측되지 않을 확률이 (오즈비만큼 변동)거의 없어지는 것을 의미 -&gt; 온도가 높아질수록 백혈병 세포가 관측될 확률 높아짐.</p>
+</section>
+<section id="문제-7.-cell-변수의-99-오즈비에-대한-신뢰구간을-구하시오." class="level1">
+<h1>문제 7. CELL 변수의 99% 오즈비에 대한 신뢰구간을 구하시오.</h1>
+<p>cell_coef = coefficients[‘CELL’] cell_se = result.bse[‘CELL’] # bse는 **표준 오차(Standard Errors, SE)가 저장된 속성</p>
+<p>z_value = 2.576 # 99% 신뢰구간에서 z값</p>
+<p>lower_log_odds = cell_coef - z_value * cell_se upper_log_odds = cell_coef + z_value * cell_se</p>
+<p>lower_odds_ratio = np.exp(lower_log_odds) upper_odds_ratio = np.exp(upper_log_odds)</p>
+<p>lower_odds_ratio, upper_odds_ratio # 0에 가까운수, 엄청 큰 수.</p>
+</section>
+<section id="문제-8.-주어진-데이터에-대하여-로지스틱-회귀-모델의-예측-확률을-구한-후-50-이상인-경우-1로-처리하여-혼동-행렬를-구하시오." class="level1">
+<h1>문제 8. 주어진 데이터에 대하여 로지스틱 회귀 모델의 예측 확률을 구한 후, 50% 이상인 경우 1로 처리하여, 혼동 행렬를 구하시오.</h1>
+<p>from sklearn.metrics import confusion_matrix predicted_probabilities = result.predict(X) predicted_classes = (predicted_probabilities &gt;= 0.5).astype(int) conf_matrix = confusion_matrix(y, predicted_classes) conf_matrix</p>
+</section>
+<section id="시각화" class="level1">
+<h1>시각화</h1>
+<p>import matplotlib.pyplot as plt import seaborn as sns</p>
+</section>
+<section id="혼동행렬-데이터" class="level1">
+<h1>혼동행렬 데이터</h1>
+<p>conf_matrix = [[15, 3], [4, 5]]</p>
+</section>
+<section id="혼동행렬-시각화" class="level1">
+<h1>혼동행렬 시각화</h1>
+<p>plt.figure(figsize=(6, 4)) sns.heatmap(conf_matrix, annot=True, fmt=“d”, cmap=“Blues”, cbar=False) plt.title(“Confusion Matrix”) plt.xlabel(“Predicted Label”) plt.ylabel(“True Label”) plt.show()</p>
+</section>
+<section id="문제-9.-해당-모델의-accuracy는-얼마인가요" class="level1">
+<h1>문제 9. 해당 모델의 Accuracy는 얼마인가요?</h1>
+<p>accuracy = (conf_matrix[0, 0] + conf_matrix[1, 1]) / conf_matrix.sum() accuracy # 정확도: 약 74.07%</p>
+</section>
+<section id="문제-10.-해당-모델의-f1-score를-구하세요." class="level1">
+<h1>문제 10. 해당 모델의 F1 Score를 구하세요.</h1>
+<p>from sklearn.metrics import f1_score</p>
+<p>f1 = f1_score(y, predicted_classes) f1 # 0.58823</p>
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1725930827184" data-listing-reading-time-sort="3" data-listing-word-count-sort="548">
-<a href="./posts/hw8/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-독립변수:
-</h5>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1723079359750" data-listing-reading-time-sort="1" data-listing-word-count-sort="2">
-<a href="./posts/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="posts\hw7\index_files\figure-html\cell-2-output-2.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Recent posts
-</h5>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="bigdata" data-listing-date-sort="1725202800000" data-listing-file-modified-sort="1725286591205" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="597">
-<a href="./posts/hw7/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="posts\hw7\index_files\figure-html\cell-2-output-2.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-:LS 빅데이터 스쿨 HomeWork7
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Sep 2, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="bigdata" data-listing-date-sort="1722783600000" data-listing-file-modified-sort="1722902988393" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="226">
-<a href="./posts/hw6/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-:LS 빅데이터 스쿨 HomeWork6
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Aug 5, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="4" data-categories="bigdata" data-listing-date-sort="1722265200000" data-listing-file-modified-sort="1722345575777" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="297">
-<a href="./posts/hw5/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="posts\hw5\index_files\figure-html\cell-2-output-2.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-:LS 빅데이터 스쿨 HomeWork5
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 30, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="5" data-categories="bigdata" data-listing-date-sort="1722178800000" data-listing-file-modified-sort="1722263641005" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="107">
-<a href="./posts/hw4/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="posts\hw4\index_files\figure-html\cell-2-output-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-:LS 빅데이터 스쿨 HomeWork4
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 29, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="6" data-categories="bigdata" data-listing-date-sort="1721574000000" data-listing-file-modified-sort="1721950087521" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="597">
-<a href="./posts/hw3/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="posts\hw3\index_files\figure-html\cell-2-output-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-:LS 빅데이터 스쿨 HomeWork3
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 22, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="7" data-categories="bigdata" data-listing-date-sort="1721142000000" data-listing-file-modified-sort="1721193742975" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="237">
-<a href="./posts/hw1/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="posts\hw1\index_files\figure-html\cell-13-output-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-:LS 빅데이터 스쿨 HomeWork1
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 17, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="8" data-categories="bigdata" data-listing-date-sort="1721142000000" data-listing-file-modified-sort="1721896946673" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="172">
-<a href="./posts/hw2/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-:LS 빅데이터 스쿨 HomeWork2
-</h5>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Jul 17, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
